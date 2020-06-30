@@ -1,12 +1,12 @@
 # 360 Human Management Resources 360 reviews Application
 
-1. [Special Links](#Special-Linksof-the-project)
+1. [Special Links](#Special-Links-of-the-project)
 2. [Goals & achievements](#Goals-&-achievements)
 3. [Problem](#Problem-according-to-the-buisnees-Owner)
 4. [Solution](#Solution)
 5. [User Journey](#User-Journey)
 6. [User Story](#User-Story)
-7. [How To Use Our Project ?](#)
+7. [How To Use Our Project ?](#How-To-Use-Our-Project-?)
 8. [Database Schema](#Database-Schema)
 9. [Technologies Used](#Technologies-Used)
 10. [Contribution](#Contributions)
@@ -108,10 +108,12 @@ For the contributions rules we will update it later
 
 # Team Leader:
 
-- [Yaqoot]()
+- [Yaqoot](https://github.com/yaqootturman)
 
-# Team Members: :upside_down_face: :purple_heart:
+# Team Members:
 
-- [Hussien Shatet]()
-- [ Ruba Seder]()
-- [Karmel Salah]()
+:upside_down_face: :purple_heart:
+
+- [Hussien Shahatet](https://github.com/Hussein-shahatet97)
+- [Ruba Seder](https://github.com/rubasider)
+- [Karmel Salah](https://github.com/karmelyoei)
