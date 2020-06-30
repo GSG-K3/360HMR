@@ -9,7 +9,7 @@
 7. [How To Use Our Project ?](#)
 8. [Database Schema](#Database-Schema)
 9. [Technologies Used](#Technologies-Used)
-10. [Contributions](#Contributions:)
+10. [Contribution](#Contributions)
 11. [Team Members](#Team-Members)
 
 # Special Links of the project:
@@ -39,32 +39,34 @@ User will use the website for creating customized forms for the evaluations proc
 
 ### As a manager :
 
-1- I can view my dashboard by logging with the Gmail account, So I can be able to use the software.
+1. I can view my dashboard by logging with the Gmail account, So I can be able to use the software.
 
-1- I can view the list of employees and their history of feedback, So I can be able to review the feedback at any time.
+1. I can view the list of employees and their history of feedback, So I can be able to review the feedback at any time.
 
-1- I can add a new employee to the system, So I can be able to track the feedback for the new employee as well.
+1. I can add a new employee to the system, So I can be able to track the feedback for the new employee as well.
 
-1- I can create an evaluation form, So I can be able to share it with my employees.
+1. I can create an evaluation form, So I can be able to share it with my employees.
 
-1- I can choose questions from the default or add a new one to the form, So The form would be more flexible and customized.
+1. I can choose questions from the default or add a new one to the form, So The form would be more flexible and customized.
 
-1- I can pick the employees who will be participated in the evaluation process, so it will give me the integrity of opinions
+1. I can pick the employees who will be participated in the evaluation process, so it will give me the integrity of opinions
 
-1- I can share the evaluation form with the specific employees to their emails, So they can find the link of the form and start the evaluation process.
+1. I can share the evaluation form with the specific employees to their emails, So they can find the link of the form and start the evaluation process.
 
-1- I can view the results of the forms submission of each employee, So I can be able to track the performance of my team.
+1. I can view the results of the forms submission of each employee, So I can be able to track the performance of my team.
+
+---
 
 ### As an employee :
 
-1- I want to be able to get the email which includes the evaluation form link, So I can be able to fill it.
+1. I want to be able to get the email which includes the evaluation form link, So I can be able to fill it.
 
 # How To Use Our Project ?
 
 - Clone this repo to your local machine using terminal:
 
 ```js
-https://github.com/GSG-K3/360HMR.git
+$ https://github.com/GSG-K3/360HMR.git
 
 ```
 
@@ -81,6 +83,8 @@ $ npm run dev
 ```
 
 # Database Schema:
+
+will be updated later...
 
 # Technologies Used :
 
