@@ -1,4 +1,6 @@
-# 360 Human Management Resources 360 reviews Application
+# 360 Human Management Resources reviews Application
+
+The only Arabian 360 review HMR solution
 
 # Special Links of the project:
 
