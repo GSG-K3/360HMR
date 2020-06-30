@@ -1,17 +1,5 @@
 # 360 Human Management Resources 360 reviews Application
 
-1. [Special Links](#Special-Links-of-the-project)
-2. [Goals & achievements](#Goals-&-achievements)
-3. [Problem](#Problem-according-to-the-buisnees-Owner)
-4. [Solution](#Solution)
-5. [User Journey](#User-Journey)
-6. [User Story](#User-Story)
-7. [How To Use Our Project ?](#How-To-Use-Our-Project-?)
-8. [Database Schema](#Database-Schema)
-9. [Technologies Used](#Technologies-Used)
-10. [Contribution](#Contributions)
-11. [Team Members](#Team-Members)
-
 # Special Links of the project:
 
 - Figma Link:
@@ -33,7 +21,7 @@ Comprehensive, easy, and effective 360-Degree Feedback Software with the Arabic 
 
 # User Journey:
 
-User will use the website for creating customized forms for the evaluations process after he/she picked the employees that would be participated in, then the user will be able to share the link of the evaluation from through the email, so the employees will be able to have access to the link, and filling with submitting the form, then the user will get a fair approach where everybody is heard and everybody’s opinion counts.
+The Manager will use the website for creating customized forms for the evaluations process after he/she picked the employees that would be participated in, then the manager will be able to share the link of the evaluation from through the email, so the employees will be able to have access to the link, and filling with submitting the form, then the manager will get a fair approach where everybody is heard and everybody’s opinion counts.
 
 # User Story:
 
