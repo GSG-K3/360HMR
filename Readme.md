@@ -73,7 +73,7 @@ $ npm run dev
 ```
 
 # Database Schema:
-[Class diagram](https://i.ibb.co/3C9V56G/hrms.png)
+(https://i.ibb.co/3C9V56G/hrms.png)
 
 # Technologies Used :
 
