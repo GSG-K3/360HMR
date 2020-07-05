@@ -3,24 +3,16 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import uiConfig from './uiConfig';
 
 // Configure Firebase.
 const config = {
-	apiKey: 'AIzaSyBTGy1XdDcKJzsG7WvNp6A5SV1rDYRYwq8',
-	authDomain: 'hmr-d5ea5.firebaseapp.com',
+	apiKey: process.env.REACT_APP_APIKEY,
+	authDomain: process.env.REACT_APP_AUTH_DOMAIN,
 	// ...
 };
 firebase.initializeApp(config);
 
-// Configure FirebaseUI.
-const uiConfig = {
-	// Popup signin flow rather than redirect flow.
-	signInFlow: 'popup',
-	// Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-	signInSuccessUrl: '/dashboard',
-	// We will display Google and Facebook as auth providers.
-	signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
-};
 class SignIn extends Component {
 	state = { isSignedIn: false };
 	componentDidMount() {

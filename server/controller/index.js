@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
 router.get('/like', (req, res) => {
-	res.send('Yaqooooooooooooob mnjneneee');
+	res.send('hello from back');
 });
 module.exports = router;
