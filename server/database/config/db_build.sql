@@ -9,7 +9,7 @@ CREATE TABLE employees
   id SERIAL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   email VARCHAR  ,
-  image TEXT,
+  image bytea,
   date date,
   position VARCHAR(50),
   role VARCHAR
@@ -18,10 +18,9 @@ CREATE TABLE employees
 CREATE TABLE questions
 (
   id SERIAL PRIMARY KEY,
-  employee_id INT,
-  FOREIGN KEY (employee_id)  REFERENCES employees(id),
   type VARCHAR NOT NULL,
-  result_rate VARCHAR ,
+  result_rate INT ,
+  answer TEXT,
   context TEXT
 );
 
@@ -58,8 +57,8 @@ CREATE TABLE employee_form
 CREATE TABLE form_questions
 (
   form_id INT,
-  question_id INT,
   FOREIGN KEY (form_id) REFERENCES forms(id),
+  question_id INT,
   FOREIGN KEY(question_id) REFERENCES questions(id)
 );
 
