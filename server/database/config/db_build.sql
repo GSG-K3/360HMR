@@ -19,7 +19,7 @@ CREATE TABLE questions
 (
   id SERIAL PRIMARY KEY,
   type VARCHAR NOT NULL,
-  result_rate INT ,
+  result_rate VARCHAR(2) ,
   answer TEXT,
   context TEXT
 );
@@ -27,30 +27,31 @@ CREATE TABLE questions
 
 CREATE TABLE employees_questions
 (
-  employee_id INT,
-  FOREIGN KEY (employee_id)  REFERENCES employees(id),
-
   question_id INT,
-  FOREIGN KEY (question_id)  REFERENCES questions(id)
+  FOREIGN KEY (question_id)  REFERENCES questions(id),
+
+  employee_id INT,
+  FOREIGN KEY (employee_id)  REFERENCES employees(id)
+
 );
 
 CREATE TABLE forms
 (
-  id SERIAL PRIMARY KEY,
-  time date,
-  employee_id INT,
-  FOREIGN KEY(employee_id) REFERENCES employees(id)
+  id SERIAL PRIMARY KEY
 );
 
 
 
 CREATE TABLE employee_form
 (
+
   employee_id INT,
   FOREIGN KEY (employee_id)  REFERENCES employees(id),
 
   form_id INT,
-  FOREIGN KEY (form_id)  REFERENCES forms(id)
+  FOREIGN KEY (form_id)  REFERENCES forms(id),
+  time date
+
 );
 
 
