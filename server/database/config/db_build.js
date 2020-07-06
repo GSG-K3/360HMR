@@ -4,17 +4,14 @@ const path = require('path');
 const dbConnection = require('./db_connection');
 
 const sql = fs.readFileSync(path.join(__dirname, 'db_build.sql')).toString();
-const dummy = fs.readFileSync(path.join(__dirname, 'dummyData.sql')).toString();
 
-const runDbBuild = (sql, dummy) => {
+const runDbBuild = (sql) => {
 	return dbConnection
 		.query(sql)
-		.then((res) => {
-			dbConnection.query(dummy).then((result) => result);
-		})
+		.then((res) => res)
 		.catch((err) => err);
 };
 
-runDbBuild(sql, dummy);
+runDbBuild(sql);
 
 module.exports = runDbBuild;
