@@ -1,5 +1,5 @@
 import React from 'react';
-import SignIn from '../../components/layoutComponents/SignIn/index';
+import SignIn from '../../CommonComponents/SignIn/index';
 
 function Home() {
 	return (
