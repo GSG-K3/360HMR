@@ -20,7 +20,6 @@ CREATE TABLE questions
   id SERIAL PRIMARY KEY,
   type VARCHAR NOT NULL,
   result_rate VARCHAR(2) ,
-  answer TEXT,
   context TEXT
 );
 
@@ -31,13 +30,16 @@ CREATE TABLE employees_questions
   FOREIGN KEY (question_id)  REFERENCES questions(id),
 
   employee_id INT,
-  FOREIGN KEY (employee_id)  REFERENCES employees(id)
+  FOREIGN KEY (employee_id)  REFERENCES employees(id),
+  answer TEXT,
+
 
 );
 
 CREATE TABLE forms
 (
-  id SERIAL PRIMARY KEY
+  id SERIAL PRIMARY KEY,
+  title VARCHAR
 );
 
 
