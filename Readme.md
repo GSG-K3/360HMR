@@ -74,8 +74,6 @@ $ npm run dev
 
 # Database Schema:
 
-will be updated later...
-
 # Technologies Used :
 
 #### Frontend:
