@@ -92,7 +92,7 @@ $ npm run dev
 
 # Database Schema:
 
-![Hrms360.](https://i.ibb.co/P1n1ZZ5/hrms.png)
+![Hrms360.](https://i.ibb.co/sw49n1f/hrms.png)
 
 # Technologies Used :
 
