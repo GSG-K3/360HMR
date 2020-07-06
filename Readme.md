@@ -1,5 +1,6 @@
 # 360 Human Management Resources reviews Application
 
+[![Build Status](https://travis-ci.org/GSG-K3/360HMR.svg?branch=master)](https://travis-ci.org/GSG-K3/360HMR)
 The only Arabian 360 review HMR solution
 
 # Special Links of the project:
