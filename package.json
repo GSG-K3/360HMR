@@ -4,7 +4,6 @@
 	"description": "The only Arabian 360 review HMR solution",
 	"main": "index.js",
 	"scripts": {
-		"test": "mocha",
 		"start": "nodemon ./server/index.js",
 		"client": "cd client && npm start",
 		"build": "cd client && npm run build",
