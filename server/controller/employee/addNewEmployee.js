@@ -2,6 +2,7 @@ const postNewEmployee = require('../../database/query/employee/postNewEmployee')
 
 const addNewEmployee = (req, res) => {
 	const Empdata = req.body;
+
 	postNewEmployee(Empdata)
 		.then((data) => {
 			res
