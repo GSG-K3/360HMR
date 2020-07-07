@@ -43,8 +43,8 @@ export default function AddNewMember() {
 		console.log('theData', TheData);
 		axios
 			.post('/api/dashboard/newemployee', TheData)
-			.then((req) => {
-				if (req.data.status !== 200) {
+			.then((res) => {
+				if (res.status !== 200) {
 					swal('Error', 'Error', 'error');
 					return;
 				}
@@ -67,21 +67,21 @@ export default function AddNewMember() {
 		>
 			<div>
 				<TextField
-					required
+					required={true}
 					name="name"
 					id="standard-required"
 					label="Name"
 					onChange={handleChange}
 				/>
 				<TextField
-					required
+					required={true}
 					name="email"
 					id="standard-required"
 					label="Email"
 					onChange={handleChange}
 				/>
 				<TextField
-					required
+					required={true}
 					name="date"
 					id="date"
 					label="Hire date"
@@ -94,14 +94,14 @@ export default function AddNewMember() {
 					onChange={handleChange}
 				/>
 				<TextField
-					required
+					required={true}
 					name="position"
 					id="standard-required"
 					label="position"
 					onChange={handleChange}
 				/>
 				<Button size="medium" color="primary" variant="contained" type="submit">
-					submit
+					ADD
 				</Button>
 			</div>
 		</form>

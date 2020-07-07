@@ -24,9 +24,10 @@
 		"@material-ui/core": "^4.11.0",
 		"concurrently": "^5.2.0",
 		"dotenv": "^8.2.0",
+		"env2": "^2.2.2",
 		"express": "^4.17.1",
 		"nodemon": "^2.0.4",
-		"pg": "^8.2.1",
+		"pg": "^7.2.1",
 		"request": "^2.88.2",
 		"sweetalert": "^2.1.2"
 	},
