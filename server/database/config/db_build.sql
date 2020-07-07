@@ -37,7 +37,7 @@ CREATE TABLE employees_questions
 );
 
 CREATE TABLE forms
-(id SERIAL PRIMARY KEY,title VARCHAR);
+(id SERIAL PRIMARY KEY,reviewer_name VARCHAR);
 
 
 CREATE TABLE employee_form
