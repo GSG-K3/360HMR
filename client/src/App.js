@@ -1,23 +1,17 @@
-import React from 'react';
-import './App.css';
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Form from './components/LayoutComponent/Form';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          HELLO, WORLD!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Fragment>
+			<Router>
+				<Switch>
+					<Route path="/dashboard/form" exact component={Form} />
+				</Switch>
+			</Router>
+		</Fragment>
+	);
 }
 
 export default App;
