@@ -21,7 +21,6 @@
 	},
 	"homepage": "https://github.com/GSG-K3/360HMR#readme",
 	"dependencies": {
-		"@material-ui/core": "^4.11.0",
 		"concurrently": "^5.2.0",
 		"dotenv": "^8.2.0",
 		"env2": "^2.2.2",

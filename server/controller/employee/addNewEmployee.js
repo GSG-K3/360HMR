@@ -1,9 +1,9 @@
 const postNewEmployee = require('../../database/query/employee/postNewEmployee');
 
 const addNewEmployee = (req, res) => {
-	const Empdata = req.body;
+	const employeeData = req.body;
 
-	postNewEmployee(Empdata)
+	postNewEmployee(employeeData)
 		.then(() => {
 			res.status(200).json({ message: 'employee added succesfuly' });
 		})

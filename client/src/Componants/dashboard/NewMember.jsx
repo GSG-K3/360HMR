@@ -40,7 +40,7 @@ export default function AddNewMember() {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const TheData = { ...empData };
-		console.log('theData', TheData);
+
 		axios
 			.post('/api/dashboard/newemployee', TheData)
 			.then((res) => {
@@ -57,7 +57,6 @@ export default function AddNewMember() {
 			});
 	};
 
-	console.log('data', empData);
 	return (
 		<form
 			className={classes.root}
