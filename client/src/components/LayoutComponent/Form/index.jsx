@@ -33,7 +33,6 @@ class Form extends Component {
 
 			return this.setState({ questions: newCheckedArry });
 		}
-
 		this.setState({ [name]: value });
 	};
 	handleSelect = (event) => {
