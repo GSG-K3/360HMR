@@ -11,24 +11,30 @@ import {
 	FormControl,
 } from '@material-ui/core';
 import axios from 'axios';
+import questions from './questions';
 
 class Form extends Component {
 	state = {
-		questionOne: false,
-		questionTwo: false,
-		questionThree: false,
-		questionFour: false,
-		questionFive: false,
+		questions: questions,
 		newQuestion: '',
 		type: '',
 		Error: '',
 	};
 
-	handleChange = (event) => {
-		let { name, value, type, checked } = event.target;
-		type === 'checkbox'
-			? this.setState({ [name]: checked })
-			: this.setState({ [name]: value });
+	handleChange = (index, event) => {
+		let { name, value, type } = event.target;
+		if (type === 'checkbox') {
+			const newCheckedArry = this.state.questions.map((question) => {
+				if (index === question.id) {
+					question.checked = !question.checked;
+				}
+				return question;
+			});
+
+			return this.setState({ questions: newCheckedArry });
+		}
+
+		this.setState({ [name]: value });
 	};
 	handleSelect = (event) => {
 		this.setState({ type: event.target.value });
@@ -42,7 +48,16 @@ class Form extends Component {
 			})
 			.then(({ data }) => {
 				if (!data.message) return this.setState({ Error: data.message });
-				console.log(data.message);
+				let lastId = this.state.questions.length - 1;
+				lastId++;
+				let json = {
+					id: lastId,
+					content: this.state.newQuestion,
+					checked: false,
+				};
+				return this.setState((prevState) => {
+					return { questions: [...prevState.questions, json] };
+				});
 			})
 			.catch((err) => console.log(err));
 	};
@@ -50,50 +65,22 @@ class Form extends Component {
 		return (
 			<Fragment>
 				<Grid>
-					<FormControlLabel
-						control={
-							<Checkbox
-								checked={this.state.questionOne}
-								onChange={this.handleChange}
-								name="questionOne"
-								color="primary"
+					{this.state.questions.map((question, index) => {
+						return (
+							<FormControlLabel
+								control={
+									<Checkbox
+										checked={question.checked}
+										onChange={(event) => this.handleChange(index, event)}
+										name={question.content}
+										color="primary"
+									/>
+								}
+								label={question.content}
+								key={index}
 							/>
-						}
-						label="questionOne"
-					/>
-					<FormControlLabel
-						control={
-							<Checkbox
-								checked={this.state.questionTwo}
-								onChange={this.handleChange}
-								name="questionTwo"
-								color="primary"
-							/>
-						}
-						label="questionTwo"
-					/>
-					<FormControlLabel
-						control={
-							<Checkbox
-								checked={this.state.questionThree}
-								onChange={this.handleChange}
-								name="questionThree"
-								color="primary"
-							/>
-						}
-						label="questionThree"
-					/>
-					<FormControlLabel
-						control={
-							<Checkbox
-								checked={this.state.questionFour}
-								onChange={this.handleChange}
-								name="questionFour"
-								color="primary"
-							/>
-						}
-						label="questionFour"
-					/>
+						);
+					})}
 				</Grid>
 				<Grid>
 					<TextField
@@ -101,7 +88,7 @@ class Form extends Component {
 						label="write a question ..."
 						variant="outlined"
 						name="newQuestion"
-						onChange={this.handleChange}
+						onChange={(event) => this.handleChange(null, event)}
 					/>
 				</Grid>
 				<Grid>
@@ -113,7 +100,6 @@ class Form extends Component {
 							label="Type"
 							value={this.state.type}
 							onChange={this.handleSelect}
-							ref={this.inputRef}
 						>
 							<MenuItem value="Rate">Rate</MenuItem>
 							<MenuItem value="Content">Content</MenuItem>
