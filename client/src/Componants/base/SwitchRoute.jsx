@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
 
-import NewMember from '../dashboard/NewMember';
+import DashBoard from '../dashboard/DashBoard';
 
 export default class UserLayout extends Component {
 	render() {
@@ -13,7 +13,7 @@ export default class UserLayout extends Component {
 						<Grid item />
 						<Grid item container>
 							<Switch>
-								<Route exact path="/dashboard" component={NewMember} />
+								<Route exact path="/dashboard" component={DashBoard} />
 							</Switch>
 						</Grid>
 					</Grid>
