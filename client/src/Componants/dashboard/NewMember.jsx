@@ -3,23 +3,7 @@ import { TextField, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import swal from 'sweetalert';
 import axios from 'axios';
-const useStyles = makeStyles((theme) => ({
-	root: {
-		'& .MuiTextField-root': {
-			margin: theme.spacing(1),
-			width: '25ch',
-		},
-	},
-	container: {
-		display: 'flex',
-		flexWrap: 'wrap',
-	},
-	textField: {
-		marginLeft: theme.spacing(1),
-		marginRight: theme.spacing(1),
-		width: 200,
-	},
-}));
+import NewMemberStyle from './NewMemberStyle';
 
 export default function AddNewMember() {
 	const [empData, setEmpdata] = React.useState({
@@ -28,7 +12,7 @@ export default function AddNewMember() {
 		date: '2020/05/24',
 		position: '',
 	});
-	const classes = useStyles();
+	const classes = NewMemberStyle();
 
 	const handleChange = (event) => {
 		const target = event.target;
