@@ -10,7 +10,11 @@ const getQuestions = (req, res) => {
 			}
 			res.send(result.rows);
 		})
-		.catch((err) => console.log(err));
+		.catch((err) =>
+			res
+				.status(401)
+				.send({ message: 'Couldnt get the questions from the db' }),
+		);
 };
 
 module.exports = getQuestions;

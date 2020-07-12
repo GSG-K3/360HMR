@@ -10,10 +10,14 @@ const insertQuestions = (req, res) => {
 					.send({ message: 'Couldnt insert the data into the db' });
 			}
 			if (result.rowCount >= 1) {
-				return res.send({ message: 'data has been inserted sucessfully' });
+				return res
+					.status(200)
+					.send({ message: 'data has been inserted sucessfully' });
 			}
 		})
-		.catch((err) => console.log(err));
+		.catch((err) =>
+			res.status(401).send({ message: 'Couldnt insert the data into the db' }),
+		);
 };
 
 module.exports = insertQuestions;

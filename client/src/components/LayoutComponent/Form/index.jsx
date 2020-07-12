@@ -17,19 +17,23 @@ import Dialog from '../../CommonComponent/Dialog';
 class Form extends Component {
 	state = {
 		questions: [],
-		newQuestion: '',
-		type: '',
+		newQuestionText: '',
+		newQuestionType: '',
 		loading: true,
-		Error: '',
+		error: '',
 		typeError: '',
-		open: false,
+		submitDialogOpen: false,
 	};
 
 	componentDidMount = () => {
 		axios
 			.get('/dashboard/form')
 			.then(({ data }) => {
-				if (!data) return this.setState({ Error: 'There is no data' });
+				if (!data)
+					return this.setState({
+						loading: false,
+						error: 'There was an error loading your data',
+					});
 				this.setState({ questions: data, loading: false });
 			})
 			.catch((err) => console.log(err));
@@ -49,46 +53,49 @@ class Form extends Component {
 		}
 		this.setState({ [name]: value });
 	};
-	handleSelect = (event) => {
-		this.setState({ type: event.target.value });
+	handleSelectNewQuestionType = (event) => {
+		this.setState({ newQuestionType: event.target.value });
 	};
-	handleClick = (event) => {
+	handleAddQuestionClick = (event) => {
 		event.preventDefault();
-		if (this.state.type === '' || this.state.newQuestion === '') {
+		if (
+			this.state.newQuestionType === '' ||
+			this.state.newQuestionText === ''
+		) {
 			return this.setState({
 				typeError:
 					'Please insert the quesstion & choose the type of the Question!!',
 			});
-		} else {
-			this.setState({ typeError: '' });
-			axios
-				.post('/api/dashboard/form', {
-					content: this.state.newQuestion,
-					type: this.state.type,
-				})
-				.then(({ data }) => {
-					if (!data.message) return this.setState({ Error: data.message });
-					let lastId = this.state.questions.length - 1;
-					lastId++;
-					let json = {
-						id: lastId,
-						context: this.state.newQuestion,
-						checked: false,
-					};
-					return this.setState((prevState) => {
-						return { questions: [...prevState.questions, json] };
-					});
-				})
-				.catch((err) => console.log(err));
 		}
+		this.setState({ typeError: '' });
+		axios
+			.post('/api/dashboard/form', {
+				content: this.state.newQuestionText,
+				type: this.state.newQuestionType,
+			})
+			.then(({ data }) => {
+				if (!data.message) return this.setState({ error: data.message });
+				const newId = this.state.questions.length;
+				let json = {
+					id: newId,
+					context: this.state.newQuestionText,
+					checked: false,
+				};
+				return this.setState((prevState) => {
+					return { questions: [...prevState.questions, json] };
+				});
+			})
+			.catch((err) =>
+				this.setState({ error: 'There was an error adding your question' }),
+			);
 	};
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-		this.setState({ open: true });
+		this.setState({ submitDialogOpen: true });
 	};
 	handleClose = () => {
-		this.setState({ open: false });
+		this.setState({ submitDialogOpen: false });
 	};
 	render() {
 		return (
@@ -96,8 +103,8 @@ class Form extends Component {
 				<Grid>
 					{this.state.loading ? (
 						<h1>Please wait its loading </h1>
-					) : this.state.Error ? (
-						<Alert severity="error">{this.state.Error}</Alert>
+					) : this.state.error ? (
+						<Alert severity="error">{this.state.error}</Alert>
 					) : (
 						this.state.questions.map((question, index) => {
 							return (
@@ -122,7 +129,7 @@ class Form extends Component {
 						id="outlined-basic"
 						label="write a question ..."
 						variant="outlined"
-						name="newQuestion"
+						name="newQuestionText"
 						onChange={(event) => this.handleChange(null, event)}
 					/>
 				</Grid>
@@ -136,8 +143,8 @@ class Form extends Component {
 							labelId="select-label"
 							id="demo-simple-select"
 							label="Type"
-							value={this.state.type}
-							onChange={this.handleSelect}
+							value={this.state.newQuestionType}
+							onChange={this.handleSelectNewQuestionType}
 						>
 							<MenuItem value="Rate">Rate</MenuItem>
 							<MenuItem value="Content">Content</MenuItem>
@@ -147,7 +154,7 @@ class Form extends Component {
 					<Button
 						variant="contained"
 						color="secondary"
-						onClick={this.handleClick}
+						onClick={this.handleAddQuestionClick}
 					>
 						Add Question
 					</Button>
@@ -163,7 +170,10 @@ class Form extends Component {
 					</Button>
 				</Grid>
 				<Grid>
-					<Dialog open={this.state.open} handleClose={this.handleClose} />
+					<Dialog
+						open={this.state.submitDialogOpen}
+						handleClose={this.handleClose}
+					/>
 				</Grid>
 			</Fragment>
 		);
