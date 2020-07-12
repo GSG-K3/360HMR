@@ -42,7 +42,6 @@ function a11yProps(index) {
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		justifyContent: 'flex-end',
 		flexGrow: 1,
 		backgroundColor: theme.palette.background.paper,
 	},
@@ -57,36 +56,27 @@ export default function SimpleTabs() {
 	};
 
 	return (
-		<div className={classes.root}>
+		<Grid className={classes.root} alignContent="flex-end">
 			<AppBar position="static">
 				<Tabs
 					value={value}
 					onChange={handleChange}
 					aria-label="simple tabs example"
-					justifyContent="space-between"
 				>
-					{/* <IconButton
-						color="secondary"
-						aria-label="upload picture"
-						component="span"
-					>
-						<PhotoCamera />
-					</IconButton> */}
-
 					<Tab label="تاريخ" {...a11yProps(0)} />
 					<Tab label="انشاء تقرير" {...a11yProps(1)} />
 					<Tab label="اضافه موظف" {...a11yProps(2)} />
 				</Tabs>
 			</AppBar>
-			<TabPanel value={value} index={0}>
-				<History />
+			<TabPanel value={value} index={2}>
+				<NewMember />
 			</TabPanel>
 			<TabPanel value={value} index={1}>
 				Item Two
 			</TabPanel>
-			<TabPanel value={value} index={2}>
-				<NewMember />
+			<TabPanel value={value} index={0}>
+				<History />
 			</TabPanel>
-		</div>
+		</Grid>
 	);
 }

@@ -70,21 +70,21 @@ export default function AddNewMember() {
 					required={true}
 					name="name"
 					id="standard-required"
-					label="Name"
+					label="الاسم"
 					onChange={handleChange}
 				/>
 				<TextField
 					required={true}
 					name="email"
 					id="standard-required"
-					label="Email"
+					label="الايميل"
 					onChange={handleChange}
 				/>
 				<TextField
 					required={true}
 					name="date"
 					id="date"
-					label="Hire date"
+					label="تاريخ التوظيف"
 					type="date"
 					defaultValue="2020-05-24"
 					className={classes.textField}
@@ -97,11 +97,11 @@ export default function AddNewMember() {
 					required={true}
 					name="position"
 					id="standard-required"
-					label="position"
+					label="الوظيفة"
 					onChange={handleChange}
 				/>
 				<Button size="medium" color="primary" variant="contained" type="submit">
-					ADD
+					اضافة
 				</Button>
 			</div>
 		</form>
