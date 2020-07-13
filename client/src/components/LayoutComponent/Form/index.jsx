@@ -22,6 +22,7 @@ class Form extends Component {
 		loading: true,
 		error: '',
 		typeError: '',
+		selectedQuestions: {},
 		submitDialogOpen: false,
 	};
 
@@ -36,7 +37,11 @@ class Form extends Component {
 					});
 				this.setState({ questions: data, loading: false });
 			})
-			.catch((err) => console.log(err));
+			.catch((err) =>
+				this.setState({
+					error: 'There was an error loading your data',
+				}),
+			);
 	};
 
 	handleChange = (index, event) => {
