@@ -44,19 +44,19 @@ class Form extends Component {
 			);
 	};
 
-	handleChange = (index, event) => {
-		let { name, value, type } = event.target;
-		if (type === 'checkbox') {
-			const newCheckedArry = this.state.questions.map((question) => {
-				if (index === question.id) {
-					question.checked = !question.checked;
-				}
-				return question;
-			});
+	handleCheckQuestion = (question) => {
+		this.setState({
+			selectedQuestions: {
+				...this.state.selectedQuestions,
+				[question.id]: !this.state.selectedQuestions[question.id],
+			},
+		});
+	};
 
-			return this.setState({ questions: newCheckedArry });
-		}
-		this.setState({ [name]: value });
+	handleChangeNewQuestionText = (event) => {
+		let { value } = event.target;
+
+		this.setState({ newQuestionText: value });
 	};
 	handleSelectNewQuestionType = (event) => {
 		this.setState({ newQuestionType: event.target.value });
@@ -84,7 +84,6 @@ class Form extends Component {
 				let json = {
 					id: newId,
 					context: this.state.newQuestionText,
-					checked: false,
 				};
 				return this.setState((prevState) => {
 					return { questions: [...prevState.questions, json] };
@@ -116,8 +115,10 @@ class Form extends Component {
 								<FormControlLabel
 									control={
 										<Checkbox
-											checked={question.checked}
-											onChange={(event) => this.handleChange(index, event)}
+											checked={Boolean(
+												this.state.selectedQuestions[question.id],
+											)}
+											onChange={() => this.handleCheckQuestion(question)}
 											name={question.context}
 											color="primary"
 										/>
@@ -135,7 +136,7 @@ class Form extends Component {
 						label="write a question ..."
 						variant="outlined"
 						name="newQuestionText"
-						onChange={(event) => this.handleChange(null, event)}
+						onChange={this.handleChangeNewQuestionText}
 					/>
 				</Grid>
 				{this.state.typeError ? (
