@@ -30,7 +30,7 @@ Fixes #37
 
 ### How to test this PR
 
-- npm i
+- npm i <<<<<<< HEAD
 
 - cd client && npm i
 
@@ -43,4 +43,12 @@ Fixes #37
 
 ![Create Form Page](https://ibb.co/qJmrnkQ)
 
-![Confrim Dialog](https://ibb.co/RYbt3qK)
+# ![Confrim Dialog](https://ibb.co/RYbt3qK)
+
+- cd client && npm i
+- create .env file put the variable names which you will find them on the Hiroku
+- cd.. && npm run dev
+
+### Screenshots of changes
+
+> > > > > > > 5f4194020236b2b545416730e27779f2f4e2171d

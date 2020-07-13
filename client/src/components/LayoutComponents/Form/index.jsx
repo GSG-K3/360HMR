@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 import axios from 'axios';
 import Alert from '@material-ui/lab/Alert';
-import Dialog from '../../CommonComponent/Dialog';
+import Dialog from '../../CommonComponents/Dialog';
 
 class Form extends Component {
 	state = {
