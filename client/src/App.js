@@ -8,16 +8,9 @@ import NewMember from './Componants/dashboard/NewMember';
 function App() {
 	return (
 		<Router>
-			<Grid container>
-				<Grid item container>
-					<Grid item />
-					<Grid item container>
-						<Switch>
-							<Route exact path="/dashboard" component={NewMember} />
-						</Switch>
-					</Grid>
-				</Grid>
-			</Grid>
+			<Switch>
+				<Route exact path="/dashboard" component={NewMember} />
+			</Switch>
 		</Router>
 	);
 }

@@ -8,7 +8,6 @@ const addNewEmployee = (req, res) => {
 			res.status(200).json({ message: 'employee added succesfuly' });
 		})
 		.catch((err) => {
-			console.log('Error in post Employee : ', err);
 			res.status(501).json({ message: 'internal error with the server' });
 		});
 };
