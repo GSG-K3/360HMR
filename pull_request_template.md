@@ -7,6 +7,9 @@
 
 * Adding button to confirm adding the employee.
 
+-using router.post ('/api/dashboard/newemployee') to add the info in the data
+base
+
 - a pop up will appear to tell you if the process is done successfuly usin
   sweetalert.
 

@@ -22,24 +22,92 @@ import NewMemberStyle from './NewMemberStyle';
 
 export default function AddNewMember() {
 	const [empData, setEmpdata] = React.useState({
-		name: '',
-		email: '',
-		date: '2020/05/24',
-		position: '',
+		name: {
+			value: '',
+			message: '',
+			isValid: true,
+			isRequired: true,
+			type: 'text',
+			lable: 'Name',
+		},
+		email: {
+			value: '',
+			message: '',
+			isValid: true,
+			isRequired: true,
+			type: 'text',
+			lable: 'name',
+		},
+		date: {
+			value: '2020/05/24',
+			message: '',
+			isValid: true,
+			isRequired: true,
+			type: 'date',
+		},
+		position: {
+			value: '',
+			message: '',
+			isValid: true,
+			isRequired: true,
+			type: 'select',
+			lable: 'position',
+		},
 	});
 	const classes = NewMemberStyle();
 
 	const handleChange = (event) => {
 		const target = event.target;
 		const form = { ...empData };
-		form[target.name] = target.value;
+		form[target.name].value = target.value;
 		setEmpdata(form);
 	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const TheData = { ...empData };
+		let formValid = true;
+		const fromInput = {};
 
+		for (let control of Object.keys(empData)) {
+			let input = empData[control];
+
+			if (input.isRequired && input.type === 'text') {
+				if (!input.value.trim()) {
+					input.message = `Please Enter ${input.lable}`;
+					input.isValid = false;
+					formValid = false;
+				} else {
+					input.message = '';
+					input.isValid = true;
+				}
+			}
+
+			if (input.isRequired && input.type === 'select') {
+				if (input.value === 0) {
+					input.message = `Please Select ${input.lable}`;
+					input.isValid = false;
+					formValid = false;
+				} else {
+					input.message = '';
+					input.isValid = true;
+				}
+			}
+
+			fromInput[control] = input;
+			if (!formValid) {
+				swal('error', input.message, 'error');
+
+				return;
+			}
+		}
+
+		const TheData = {
+			name: empData.name.value,
+			email: empData.email.value,
+			date: empData.date.value,
+			position: empData.position.value,
+		};
+		console.log(empData.email.isValid);
 		axios
 			.post('/api/dashboard/newemployee', TheData)
 			.then((res) => {
@@ -57,14 +125,14 @@ export default function AddNewMember() {
 	};
 
 	return (
-		<Box component="div" width={1} bgcolor="warning.main" mx={23} mt={6}>
+		<Box component="div" bgcolor="warning.main" mx={23} mt={6}>
 			<Grid container className={classes.root}>
 				<Grid item xs={6} alignContent="center">
 					<Box>
 						<Card className={classes.card}>
 							<CardMedia
 								className={classes.media}
-								image={require('../../img/addEmp.png')}
+								image={require('../../../img/addEmp.png')}
 								title="img"
 							/>
 							<CardContent>
@@ -97,6 +165,8 @@ export default function AddNewMember() {
 									<TextField
 										className={classes.fullWidth}
 										required={true}
+										error={!empData.name.isValid}
+										autoFocus={true}
 										name="name"
 										id="standard-required"
 										placeholder="الاسم"
@@ -115,6 +185,8 @@ export default function AddNewMember() {
 									<TextField
 										className={classes.fullWidth}
 										required={true}
+										error={!empData.email.isValid}
+										autoFocus={true}
 										name="email"
 										id="standard-required"
 										placeholder="الايميل"
@@ -166,6 +238,8 @@ export default function AddNewMember() {
 											المهنة
 										</InputLabel>
 										<NativeSelect
+											error={!empData.position.isValid}
+											autoFocus={true}
 											color="secondary"
 											// value={category_id.value}
 											variant="filled"
@@ -198,5 +272,56 @@ export default function AddNewMember() {
 				</Grid>
 			</Grid>
 		</Box>
+		// <form
+		// 	className={classes.root}
+		// 	noValidate
+		// 	autoComplete="off"
+		// 	onSubmit={handleSubmit}
+		// >
+		// 	<div>
+		// 		<TextField
+		// 			required
+		// 			name="name"
+		// 			error={!empData.name.isValid}
+		// 			autoFocus={true}
+		// 			id="standard-required"
+		// 			label="Name"
+		// 			onChange={handleChange}
+		// 			autoFocus={true}
+		// 		/>
+		// 		<TextField
+		// 			required={true}
+		// 			name="email"
+		// 			error={!empData.email.isValid}
+		// 			autoFocus={true}
+		// 			id="standard-required"
+		// 			label="Email"
+		// 			onChange={handleChange}
+		// 		/>
+		// 		<TextField
+		// 			required={true}
+		// 			name="date"
+		// 			id="date"
+		// 			label="Hire date"
+		// 			type="date"
+		// 			defaultValue="2020-05-24"
+		// 			className={classes.textField}
+		// 			InputLabelProps={{
+		// 				shrink: true,
+		// 			}}
+		// 			onChange={handleChange}
+		// 		/>
+		// 		<TextField
+		// 			required={true}
+		// 			name="position"
+		// 			id="standard-required"
+		// 			label="position"
+		// 			onChange={handleChange}
+		// 		/>
+		// 		<Button size="medium" color="primary" variant="contained" type="submit">
+		// 			ADD
+		// 		</Button>
+		// 	</div>
+		// </form>
 	);
 }
