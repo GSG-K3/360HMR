@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import NavBar from '../../CommonComponents/NavBar';
 
 class Dashboard extends Component {
 	state = { user: {} };
@@ -18,6 +19,7 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<Fragment>
+				<NavBar history={this.props.history} />
 				<h1>Welcome to your Dashborad {this.state.user.displayName}</h1>
 				<button onClick={this.signOut}>Sign Out</button>
 			</Fragment>

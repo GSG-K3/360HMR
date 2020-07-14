@@ -2,16 +2,16 @@ import React, { Fragment } from 'react';
 import { AppBar, Toolbar, IconButton, Grid } from '@material-ui/core';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import useStyles from './style';
-import Tabs from '../../CommonComponents/Tabs';
+import Tabs from '../Tabs';
 
-export default function MenuBar(props) {
+export default function NavBar(props) {
 	const classes = useStyles();
 	const pathname = props.history.location.pathname;
 
 	return (
 		<div className={classes.root}>
 			<AppBar position="static" color="default">
-				<Toolbar>
+				<Toolbar className={classes.container}>
 					<Grid>
 						<img src={require('../../../assets/logo.png')} alt="logo" />
 					</Grid>
