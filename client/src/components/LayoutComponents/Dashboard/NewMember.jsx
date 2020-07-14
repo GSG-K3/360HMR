@@ -137,7 +137,7 @@ export default function AddNewMember() {
 							/>
 							<CardContent>
 								<Typography variant="body2" color="textSecondary" component="p">
-									Human Resource Management System for 360 reviews
+									نظام إدارة الموارد البشرية
 								</Typography>
 							</CardContent>
 						</Card>
