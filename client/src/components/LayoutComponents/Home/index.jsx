@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import SignIn from '../../CommonComponents/SignIn/index';
+import MenuBar from '../../CommonComponents/MenuBar';
 
 function Home() {
 	return (
-		<div>
+		<Fragment>
+			<MenuBar />
 			<SignIn />
-		</div>
+		</Fragment>
 	);
 }
 
