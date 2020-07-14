@@ -13,4 +13,4 @@ storing url in (config.env) file.
 3-Go to the browser and write the url as shown in router,but change the id to check more than one employee. 
 4-The result will show as objects.
 
-"Screenshots of changes" Its backend work, no FE done!
+"Screenshots of changes" Its backend work, no FE done!.
