@@ -1,22 +1,33 @@
 ### What does this PR do?
 
-- Displaying google Sign-in button
+- Call the add new employee with http://localhost:3000/dashboard endpoint.
 
-- when you sign in through the Gmail it will direct you to the dashboard page
+* On the dashBoard page you can add new employee tab and add the employee to the
+  database after you add his name,email,date of hireing and position.
 
-- Dashboard page will display your name and Signout Button
+* Adding button to confirm adding the employee.
 
--Signout Button will remove the sign details and redirect you to the home page
+-using router.post ('/api/dashboard/newemployee') to add the info in the data
+base
+
+- a pop up will appear to tell you if the process is done successfuly usin
+  sweetalert.
 
 ### Does this Fix an Issue?
 
-Fixes #26
+Fixes #36
 
 ### How to test this PR
 
 - npm i
+
 - cd client && npm i
-- create .env file put the variable names which you will find them on the Hiroku
-- cd.. && npm run dev
+
+- cd..
+
+- npm run dev
+- go to http://localhost:3000/dashboard endpoint
 
 ### Screenshots of changes
+
+the front end isn't ready yet
