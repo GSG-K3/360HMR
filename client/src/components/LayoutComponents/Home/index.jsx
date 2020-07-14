@@ -1,12 +1,28 @@
 import React, { Fragment } from 'react';
 import SignIn from '../../CommonComponents/SignIn/index';
-import MenuBar from '../../CommonComponents/MenuBar';
+import { create } from 'jss';
+import rtl from 'jss-rtl';
+import {
+	StylesProvider,
+	jssPreset,
+	ThemeProvider,
+} from '@material-ui/core/styles';
+import NavBar from '../../CommonComponents/NavBar';
+import Theme from '../../../theme/MaterialUiTheme';
 
-function Home() {
+// Configure JSS
+const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
+
+function Home(props) {
+	let { history } = props;
 	return (
 		<Fragment>
-			<MenuBar />
-			<SignIn />
+			<ThemeProvider theme={Theme}>
+				<StylesProvider jss={jss}>
+					<NavBar history={history} />
+					<SignIn />
+				</StylesProvider>
+			</ThemeProvider>
 		</Fragment>
 	);
 }
