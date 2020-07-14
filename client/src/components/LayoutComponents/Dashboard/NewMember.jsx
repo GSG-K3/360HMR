@@ -5,7 +5,6 @@ import {
 	Grid,
 	Card,
 	CardMedia,
-	CardHeader,
 	CardContent,
 	Typography,
 	Box,
@@ -13,6 +12,7 @@ import {
 	FormControl,
 	InputLabel,
 	NativeSelect,
+	Select,
 } from '@material-ui/core';
 import { Person, AlternateEmail, DateRange } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
@@ -80,9 +80,7 @@ export default function AddNewMember() {
 					input.message = '';
 					input.isValid = true;
 				}
-			}
-
-			if (input.isRequired && input.type === 'select') {
+			} else if (input.isRequired && input.type === 'select') {
 				if (input.value === 0) {
 					input.message = `Please Select ${input.lable}`;
 					input.isValid = false;
@@ -107,7 +105,7 @@ export default function AddNewMember() {
 			date: empData.date.value,
 			position: empData.position.value,
 		};
-		console.log(empData.email.isValid);
+
 		axios
 			.post('/api/dashboard/newemployee', TheData)
 			.then((res) => {
@@ -125,7 +123,7 @@ export default function AddNewMember() {
 	};
 
 	return (
-		<Box component="div" bgcolor="warning.main" mx={23} mt={6}>
+		<Box component="div" bgcolor="info.main" mx={23} mt={6}>
 			<Grid container className={classes.root}>
 				<Grid item xs={6} alignContent="center">
 					<Box>
@@ -136,7 +134,7 @@ export default function AddNewMember() {
 								title="img"
 							/>
 							<CardContent>
-								<Typography variant="body2" color="textSecondary" component="p">
+								<Typography variant="h5" color="textSecondary" component="p">
 									نظام إدارة الموارد البشرية
 								</Typography>
 							</CardContent>
@@ -152,7 +150,7 @@ export default function AddNewMember() {
 					className={classes.gutterBottom}
 					justify="center"
 				>
-					<form noValidate autoComplete="off" onSubmit={handleSubmit}>
+					<form autoComplete="off" onSubmit={handleSubmit}>
 						<div dir="rtl">
 							<Box
 								display="flex"
@@ -160,7 +158,7 @@ export default function AddNewMember() {
 								alignContent="center"
 								m={6}
 							>
-								<Typography>املا بيانات الموظف</Typography>
+								<Typography color="primary">املا بيانات الموظف</Typography>
 								<Box m={2}>
 									<TextField
 										className={classes.fullWidth}
@@ -225,24 +223,19 @@ export default function AddNewMember() {
 									/>
 								</Box>
 								<Box m={2}>
-									{/* <TextField
-									required={true}
-									name="position"
-									id="standard-required"
-									label="المهنة"
-									onChange={handleChange}
-									variant="filled"
-								/> */}
 									<FormControl className={classes.fullWidth}>
-										<InputLabel htmlFor="event-category" color="secondary">
+										<InputLabel
+											htmlFor="position"
+											color="primary"
+											placeholder="	المهنة"
+										>
 											المهنة
 										</InputLabel>
-										<NativeSelect
+										<Select
+											required={true}
 											error={!empData.position.isValid}
 											autoFocus={true}
 											color="secondary"
-											// value={category_id.value}
-											variant="filled"
 											onChange={handleChange}
 											inputProps={{
 												name: 'position',
@@ -252,7 +245,7 @@ export default function AddNewMember() {
 											<option value={'مبرمج'}>مبرمج</option>
 											<option value={'سكرتير'}>سكرتير</option>
 											<option value={'مدير قسم'}>مدير قسم</option>
-										</NativeSelect>
+										</Select>
 									</FormControl>
 								</Box>
 								<Box m={2}>
@@ -272,56 +265,5 @@ export default function AddNewMember() {
 				</Grid>
 			</Grid>
 		</Box>
-		// <form
-		// 	className={classes.root}
-		// 	noValidate
-		// 	autoComplete="off"
-		// 	onSubmit={handleSubmit}
-		// >
-		// 	<div>
-		// 		<TextField
-		// 			required
-		// 			name="name"
-		// 			error={!empData.name.isValid}
-		// 			autoFocus={true}
-		// 			id="standard-required"
-		// 			label="Name"
-		// 			onChange={handleChange}
-		// 			autoFocus={true}
-		// 		/>
-		// 		<TextField
-		// 			required={true}
-		// 			name="email"
-		// 			error={!empData.email.isValid}
-		// 			autoFocus={true}
-		// 			id="standard-required"
-		// 			label="Email"
-		// 			onChange={handleChange}
-		// 		/>
-		// 		<TextField
-		// 			required={true}
-		// 			name="date"
-		// 			id="date"
-		// 			label="Hire date"
-		// 			type="date"
-		// 			defaultValue="2020-05-24"
-		// 			className={classes.textField}
-		// 			InputLabelProps={{
-		// 				shrink: true,
-		// 			}}
-		// 			onChange={handleChange}
-		// 		/>
-		// 		<TextField
-		// 			required={true}
-		// 			name="position"
-		// 			id="standard-required"
-		// 			label="position"
-		// 			onChange={handleChange}
-		// 		/>
-		// 		<Button size="medium" color="primary" variant="contained" type="submit">
-		// 			ADD
-		// 		</Button>
-		// 	</div>
-		// </form>
 	);
 }
