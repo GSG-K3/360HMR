@@ -1,4 +1,4 @@
-const postNewEmployee = require('../../database/query/employee/postNewEmployee');
+const postNewEmployee = require('../../database/queries/employees/postNewEmployee');
 
 const addNewEmployee = (req, res) => {
 	const employeeData = req.body;
