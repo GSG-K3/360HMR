@@ -56,7 +56,7 @@ export default function SimpleTabs() {
 	};
 
 	return (
-		<Grid className={classes.root} alignContent="flex-end">
+		<Grid className={classes.root}>
 			<AppBar position="static">
 				<Tabs
 					value={value}
