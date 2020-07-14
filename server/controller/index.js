@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { addNewEmployee } = require('./employee');
+const addNewEmployee = require('./employee/addNewEmployee');
 
 router.post('/api/dashboard/newemployee', addNewEmployee);
 
