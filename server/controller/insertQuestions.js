@@ -2,6 +2,10 @@ const insertQuestionsQuery = require('../database/queries/insertQuestionsQuery')
 
 const insertQuestions = (req, res) => {
 	const questions = req.body;
+	if (!questions)
+		return res.status(401).send({
+			message: 'There is no new question has been captured from the front end',
+		});
 	insertQuestionsQuery(questions)
 		.then((result) => {
 			if (!result) {

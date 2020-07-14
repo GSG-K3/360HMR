@@ -5,14 +5,14 @@ const getQuestions = (req, res) => {
 		.then((result) => {
 			if (!result) {
 				return res
-					.status(401)
+					.status(500)
 					.send({ message: 'Couldnt get the questions from the db' });
 			}
-			res.send(result.rows);
+			res.status(200).send(result.rows);
 		})
 		.catch((err) =>
 			res
-				.status(401)
+				.status(500)
 				.send({ message: 'Couldnt get the questions from the db' }),
 		);
 };
