@@ -55,6 +55,10 @@ export default function AddNewMember() {
 		},
 	});
 	const classes = NewMemberStyle();
+	const validateEmail = (email) => {
+		const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(String(email).toLowerCase());
+	};
 
 	const handleChange = (event) => {
 		const target = event.target;
@@ -68,58 +72,33 @@ export default function AddNewMember() {
 		let formValid = true;
 		const fromInput = {};
 
-		for (let control of Object.keys(empData)) {
-			let input = empData[control];
+		if (empData.email && !validateEmail(empData.email.value)) {
+			empData.email.message = 'Enter a valide email please';
+			swal('error', empData.email.message, 'error');
+			empData.email.isValid = false;
+		} else {
+			const TheData = {
+				name: empData.name.value,
+				email: empData.email.value,
+				date: empData.date.value,
+				position: empData.position.value,
+			};
 
-			if (input.isRequired && input.type === 'text') {
-				if (!input.value.trim()) {
-					input.message = `Please Enter ${input.lable}`;
-					input.isValid = false;
-					formValid = false;
-				} else {
-					input.message = '';
-					input.isValid = true;
-				}
-			} else if (input.isRequired && input.type === 'select') {
-				if (input.value === 0) {
-					input.message = `Please Select ${input.lable}`;
-					input.isValid = false;
-					formValid = false;
-				} else {
-					input.message = '';
-					input.isValid = true;
-				}
-			}
+			axios
+				.post('/api/dashboard/newemployee', TheData)
+				.then((res) => {
+					if (res.status !== 200) {
+						swal('Error', 'Error', 'error');
+						return;
+					}
 
-			fromInput[control] = input;
-			if (!formValid) {
-				swal('error', input.message, 'error');
-
-				return;
-			}
+					swal('Good job!', 'employee added successfuly', 'success');
+				})
+				.catch((err) => {
+					if (err.response.data)
+						swal('error', err.response.data.message, 'error');
+				});
 		}
-
-		const TheData = {
-			name: empData.name.value,
-			email: empData.email.value,
-			date: empData.date.value,
-			position: empData.position.value,
-		};
-
-		axios
-			.post('/api/dashboard/newemployee', TheData)
-			.then((res) => {
-				if (res.status !== 200) {
-					swal('Error', 'Error', 'error');
-					return;
-				}
-
-				swal('Good job!', 'employee added successfuly', 'success');
-			})
-			.catch((err) => {
-				if (err.response.data)
-					swal('error', err.response.data.message, 'error');
-			});
 	};
 
 	return (
@@ -228,6 +207,7 @@ export default function AddNewMember() {
 											htmlFor="position"
 											color="primary"
 											placeholder="	المهنة"
+											// position="end"
 										>
 											المهنة
 										</InputLabel>
