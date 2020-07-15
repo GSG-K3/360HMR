@@ -56,6 +56,7 @@ export default function SimpleTabs() {
 	};
 
 	return (
+		
 		<Grid className={classes.root}>
 			<AppBar position="static">
 				<Tabs

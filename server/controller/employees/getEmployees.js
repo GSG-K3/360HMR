@@ -1,4 +1,4 @@
-const getEmployeesBy = require('../../database/query/employee/getEmployees');
+const getEmployeesBy = require('../../database/queries/employees/getEmployees');
 
 const getEmployees = (req, res) => {
 	getEmployeesBy()

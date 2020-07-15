@@ -13,7 +13,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import swal from 'sweetalert';
 import axios from 'axios';
-import LoaderProgress from '../base/LoaderProgress';
+import LoaderProgress from '../../CommonComponents/LoaderProgress';
 import { Person } from '@material-ui/icons';
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 		flexWrap: 'wrap',
 	},
 	textField: {
+		display: 'flex',
 		marginLeft: theme.spacing(1),
 		marginRight: theme.spacing(1),
 		width: 200,
@@ -68,7 +69,7 @@ export default function AddNewMember() {
 							{/* <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" /> */}
 							<Person color="disabled" fontSize="large" />
 						</ListItemAvatar>
-						<ListItemText primary={empValue.name} />
+						<ListItemText primary={empValue.name} display="flex" />
 						<Button onClick={handleClick}>view</Button>
 					</ListItem>
 

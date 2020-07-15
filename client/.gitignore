@@ -1,5 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 .vscode/launch.json
+.env
 
 
 # dependencies
@@ -23,3 +24,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
