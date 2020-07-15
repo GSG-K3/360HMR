@@ -221,7 +221,6 @@ export default function AddNewMember() {
 												name: 'position',
 											}}
 										>
-											<option aria-label="None" value="" />
 											<option value={'مبرمج'}>مبرمج</option>
 											<option value={'سكرتير'}>سكرتير</option>
 											<option value={'مدير قسم'}>مدير قسم</option>
