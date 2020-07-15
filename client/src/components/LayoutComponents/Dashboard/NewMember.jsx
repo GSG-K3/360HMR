@@ -73,7 +73,7 @@ export default function AddNewMember() {
 		const fromInput = {};
 
 		if (empData.email && !validateEmail(empData.email.value)) {
-			empData.email.message = 'Enter a valide email please';
+			empData.email.message = 'Enter a valid email please';
 			swal('error', empData.email.message, 'error');
 			empData.email.isValid = false;
 		} else {
