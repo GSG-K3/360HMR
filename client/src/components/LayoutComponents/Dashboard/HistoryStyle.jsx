@@ -22,7 +22,7 @@ export default makeStyles((theme) => ({
 		display: 'flex',
 		// justifyContent: 'space-between',
 		height: '120px',
-		margin: theme.spacing(3),
+		margin: theme.spacing(6),
 	},
 	list: {
 		width: '80%',
@@ -30,6 +30,6 @@ export default makeStyles((theme) => ({
 		marginRight: theme.spacing(15),
 	},
 	ItemText: {
-		marginLeft: theme.spacing(85),
+		// marginLeft: theme.spacing(85),
 	},
 }));

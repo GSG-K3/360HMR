@@ -46,7 +46,7 @@ export default function AddNewMember() {
 
 			empNames.push(
 				<React.Fragment>
-					<Box boxShadow={3}>
+					<Box boxShadow={2}>
 						<ListItem className={classes.listItem}>
 							<ListItemAvatar>
 								<Avatar alt="Remy Sharp" src="https://ibb.co/1fJgHrv" />
