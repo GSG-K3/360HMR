@@ -1,0 +1,14 @@
+                    List of relations
+ Schema |        Name         |   Type   |     Owner      
+--------+---------------------+----------+----------------
+ public | employee_form       | table    | bbhuvvnhxoongq
+ public | employees           | table    | bbhuvvnhxoongq
+ public | employees_id_seq    | sequence | bbhuvvnhxoongq
+ public | employees_questions | table    | bbhuvvnhxoongq
+ public | form_questions      | table    | bbhuvvnhxoongq
+ public | forms               | table    | bbhuvvnhxoongq
+ public | forms_id_seq        | sequence | bbhuvvnhxoongq
+ public | questions           | table    | bbhuvvnhxoongq
+ public | questions_id_seq    | sequence | bbhuvvnhxoongq
+(9 rows)
+
