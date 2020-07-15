@@ -1,12 +1,44 @@
-import React from 'react';
-import Intro from './Intro';
+import React, { Component } from 'react';
+import { Paper, Typography, Grid, Box } from '@material-ui/core';
+import Styles from './style';
+import SignIn from '../../CommonComponents/SignIn/index';
+import { withStyles } from '@material-ui/core/styles';
 
-function Home() {
-	return (
-		<div>
-			<Intro />
-		</div>
-	);
+class Home extends Component {
+	render() {
+		const { classes } = this.props;
+		return (
+			<Box width={1} mt={4}>
+				<Paper elevation={3} className={classes.paper}>
+					<Grid container xs={12} justify="flex-start" alignItems="center">
+						<Grid item xs={6} container>
+							<img src={require('../../../assets/home.png')} alt="home" />
+						</Grid>
+						<Grid item xs={6} container spacing={4}>
+							<Grid item>
+								<Typography
+									variant="h3"
+									component="h2"
+									gutterBottom
+									className={classes.header}
+								>
+									نظام إدارة الموارد البشرية
+								</Typography>
+								<Typography variant="h5" component="h2" gutterBottom>
+									تقييم أداء الموظف بشكل كلي عبر شركتك. يمكنك إعداد التقارير
+									وفقًا لمواصفاتك الدقيقة اجمع التعليقات من الأشخاص المناسبين في
+									الوقت المناسب.
+								</Typography>
+							</Grid>
+							<Grid item>
+								<SignIn />
+							</Grid>
+						</Grid>
+					</Grid>
+				</Paper>
+			</Box>
+		);
+	}
 }
 
-export default Home;
+export default withStyles(Styles)(Home);
