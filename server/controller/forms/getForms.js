@@ -14,6 +14,6 @@ exports.getForms = (req, res) => {
 						.json({ message: ' Employee did not  evaluated yet!' });
 				}
 			})
-			.catch((err) => err);
+			.catch((err) => res.status(500).json({ message: "An unknown error occurred" }));
 	}
 };
