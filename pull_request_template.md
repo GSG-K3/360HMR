@@ -1,33 +1,16 @@
-### What does this PR do?
+"What does this PR do?" 
+This pull request created to get all form answers when
+the manger select the employee from the list to show result.And this happend by
+employee (id) joined with form (id) ,and questions (id) in the query.
 
-- Call the add new employee with http://localhost:3000/dashboard endpoint.
+"Does this Fix an Issue?" 
+"Related #34"
 
-* On the dashBoard page you can add new employee tab and add the employee to the
-  database after you add his name,email,date of hireing and position.
+"How to test this PR" 
+1-You should be able to access database on heroku by
+storing url in (config.env) file. 
+2-Get the route that implement the query on database from index.js file.
+3-Go to the browser and write the url as shown in router,but change the id to check more than one employee. 
+4-The result will show as objects.
 
-* Adding button to confirm adding the employee.
-
--using router.post ('/api/dashboard/newemployee') to add the info in the data
-base
-
-- a pop up will appear to tell you if the process is done successfuly usin
-  sweetalert.
-
-### Does this Fix an Issue?
-
-Fixes #36
-
-### How to test this PR
-
-- npm i
-
-- cd client && npm i
-
-- cd..
-
-- npm run dev
-- go to http://localhost:3000/dashboard endpoint
-
-### Screenshots of changes
-
-the front end isn't ready yet
+"Screenshots of changes" Its backend work, no FE done!.

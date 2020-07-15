@@ -1,4 +1,7 @@
 const router = require('express').Router();
+const { getForms } = require('./forms/getForms');
+
+router.get('/api/forminfo/:employeeID', getForms);
 
 const addNewEmployee = require('./employees/addNewEmployee');
 
