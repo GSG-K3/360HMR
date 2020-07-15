@@ -8,6 +8,7 @@ import {
 	ListItemText,
 	ListItemAvatar,
 	Grid,
+	Avatar,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import swal from 'sweetalert';
@@ -45,16 +46,28 @@ export default function AddNewMember() {
 
 			empNames.push(
 				<React.Fragment>
-					<ListItem alignItems="center">
-						<ListItemAvatar>
-							{/* <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" /> */}
-							<Person color="disabled" fontSize="large" />
-						</ListItemAvatar>
-						<ListItemText primary={empValue.name} display="flex" />
-						<Button onClick={handleClick}>view</Button>
-					</ListItem>
-
-					<Divider variant="fullWidth" component="li" />
+					<Box boxShadow={3}>
+						<ListItem className={classes.listItem}>
+							<ListItemAvatar>
+								<Avatar alt="Remy Sharp" src="https://ibb.co/1fJgHrv" />
+								{/* <Person color="disabled" fontSize="large" /> */}
+							</ListItemAvatar>
+							<ListItemText
+								primary={empValue.name}
+								className={classes.ItemText}
+							/>
+							<Button
+								onClick={handleClick}
+								color="primary"
+								variant="contained"
+								size="larg"
+							>
+								المقيمين
+							</Button>
+						</ListItem>
+					</Box>
+					{/* <Divider variant="fullWidth" component="li"
+					 /> */}
 				</React.Fragment>,
 			);
 		}
@@ -65,9 +78,9 @@ export default function AddNewMember() {
 	};
 
 	return (
-		<Box>
+		<Box m={3}>
 			<LoaderProgress isLoading={isLoading} />
-			<List>{buildList(employees)}</List>
+			<List className={classes.list}>{buildList(employees)}</List>
 		</Box>
 	);
 }
