@@ -10,6 +10,7 @@ import {
 	Grid,
 	Avatar,
 } from '@material-ui/core';
+import { Redirect, Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import swal from 'sweetalert';
 import axios from 'axios';
@@ -26,14 +27,16 @@ export default function AddNewMember() {
 			.get('/api/employees')
 			.then((result) => {
 				const emp = { ...result.data.data };
+
 				setEmployees(emp);
 			})
 			.catch((err) => {
 				if (err.response.data) swal('Error', err.response.data.messag, 'error');
 			});
 	}, []);
-	const handleClick = () => {
-		// return Redirect push to="/dashboard/history/${employee name}" ;
+	const handleClick = (id) => {
+		// console.log('id', id);
+		// return <Link to={`/dashboard/history/${id}`} />;
 	};
 	const buildList = (employee) => {
 		const empNames = [];
@@ -62,7 +65,7 @@ export default function AddNewMember() {
 								variant="contained"
 								size="larg"
 							>
-								المقيمين
+								<Link to={`/dashboard/history/${empValue.id}`}> المقيمين</Link>
 							</Button>
 						</ListItem>
 					</Box>

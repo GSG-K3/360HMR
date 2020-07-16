@@ -1,4 +1,4 @@
-Call the add new employee with http://localhost:3000/dashboard/history endpoint.
+Call the history with http://localhost:3000/dashboard/history endpoint.
 
 on this page you can see a list of employees that have been reviewed before
 

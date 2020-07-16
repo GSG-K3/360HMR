@@ -6,9 +6,7 @@ const getEmployees = (req, res) => {
 			res.status(200).json({ data: data.rows, message: 'employee details' });
 		})
 		.catch((err) => {
-			res
-				.status(501)
-				.json({ data: null, message: 'internal error with the server' });
+			res.status(501).json({ message: 'internal error with the server' });
 		});
 };
 module.exports = getEmployees;
