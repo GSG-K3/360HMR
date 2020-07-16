@@ -12,6 +12,7 @@ import rtl from 'jss-rtl';
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
 ReactDOM.render(
+<<<<<<< HEAD
 	<React.StrictMode>
 		<ThemeProvider theme={theme}>
 			<StylesProvider jss={jss}>
@@ -20,4 +21,11 @@ ReactDOM.render(
 		</ThemeProvider>
 	</React.StrictMode>,
 	document.getElementById('root'),
+=======
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+>>>>>>> 9c13e8c0c5a524e52c1ad36708242186ce78bf4e
 );
+
