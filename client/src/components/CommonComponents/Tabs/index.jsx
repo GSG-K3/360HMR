@@ -21,7 +21,7 @@ export default function DisabledTabs() {
 			aria-label="tabs"
 			variant="fullWidth"
 		>
-			<Tab className={classes.text} label="التقيــمات" />
+			<Tab className={classes.text} label="اﻷرشيــــف" />
 			<Tab className={classes.text} label="تقييم جديد" />
 			<Tab className={classes.text} label="اضافة موظف جديد" />
 		</Tabs>
