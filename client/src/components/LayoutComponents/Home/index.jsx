@@ -8,13 +8,17 @@ class Home extends Component {
 	render() {
 		const { classes } = this.props;
 		return (
-			<Box width={1} mt={4}>
+			<Box width={1} mt={4} className={classes.box}>
 				<Paper elevation={3} className={classes.paper}>
 					<Grid container xs={12} justify="flex-start" alignItems="center">
 						<Grid item xs={6} container>
-							<img src={require('../../../assets/home.png')} alt="home" />
+							<img
+								src={require('../../../assets/home.png')}
+								alt="home"
+								className={classes.image}
+							/>
 						</Grid>
-						<Grid item xs={6} container spacing={4}>
+						<Grid item xs={6} container justify="center" spacing={4}>
 							<Grid item>
 								<Typography
 									variant="h3"
