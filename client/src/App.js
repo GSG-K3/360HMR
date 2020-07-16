@@ -9,28 +9,38 @@ import Dashboard from './components/LayoutComponents/Dashboard';
 
 function App() {
 	return (
-		<Router>
-			<Grid direction="column" container>
-				<Grid item xs={12}>
-					{/* Header */}
-				</Grid>
-				<Grid item container>
-					<Grid item xs={false} md={1} />
-					<Grid item container xs={12} md={10} direction="row" justify="center">
-						<Switch>
-							<Route path="/" exact component={Home} />
-							<Route path="/dashboard" exact component={Dashboard} />
-							<Route
-								exact
-								path="/dashboard/new-employee"
-								component={NewMember}
-							/>
-						</Switch>
+		<div className="App">
+			<Router>
+				<Grid direction="column" container className="Container">
+					<Grid item xs={12}>
+						{/* Header */}
 					</Grid>
-					<Grid item xs={false} md={1} />
+					<Grid item container className="Container">
+						<Grid item xs={false} md={1} className="Container"></Grid>
+						<Grid
+							item
+							container
+							xs={12}
+							md={10}
+							direction="row"
+							justify="center"
+							className="Container"
+						>
+							<Switch>
+								<Route path="/" exact component={Home} />
+								<Route path="/dashboard" exact component={Dashboard} />
+								<Route
+									exact
+									path="/dashboard/new-employee"
+									component={NewMember}
+								/>
+							</Switch>
+						</Grid>
+						<Grid item xs={false} md={1} className="Container" />
+					</Grid>
 				</Grid>
-			</Grid>
-		</Router>
+			</Router>
+		</div>
 	);
 }
 

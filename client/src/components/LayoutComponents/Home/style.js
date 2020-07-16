@@ -12,6 +12,7 @@ const Style = (theme) => ({
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'center',
+		height: '100%',
 	},
 	image: {
 		height: '100%',
@@ -19,6 +20,9 @@ const Style = (theme) => ({
 			width: 350,
 			height: 532,
 		},
+	},
+	container: {
+		height: '100%',
 	},
 });
 
