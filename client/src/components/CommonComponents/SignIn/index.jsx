@@ -4,6 +4,7 @@ import 'firebase/auth';
 import 'firebase/firestore';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import uiConfig from './uiConfig';
+import './firebaseui-styling.global.css';
 
 // Configure Firebase.
 const config = {
