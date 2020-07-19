@@ -1,10 +1,13 @@
 import React, { Fragment, Component } from 'react';
 import fire from '../../CommonComponents/SignIn/fire';
+import { AuthContext } from '../../../Auth';
 
 class Dashboard extends Component {
 	state = { user: {} };
 
 	componentDidMount() {
+		const { currentUser } = this.context;
+		if (!currentUser) return this.props.history.push('/');
 		fire.auth().onAuthStateChanged((user) => {
 			this.setState({ user: user });
 		});
@@ -22,5 +25,5 @@ class Dashboard extends Component {
 		);
 	}
 }
-
+Dashboard.contextType = AuthContext;
 export default Dashboard;
