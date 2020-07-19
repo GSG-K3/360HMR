@@ -6,6 +6,7 @@ import NewMember from './components/LayoutComponents/Dashboard/NewMember';
 import History from './components/LayoutComponents/Dashboard/History';
 
 import Home from './components/LayoutComponents/Home';
+import HistorySummary from './components/LayoutComponents/HistorySummary';
 
 function App() {
 	return (
@@ -14,6 +15,7 @@ function App() {
 				<Route path="/" exact component={Home} />
 				<Route path="/dashboard/newMember" exact component={NewMember} />
 				<Route path="/dashboard/history" exact component={History} />
+				<Route path="/dashboard/history/:id" exact component={HistorySummary} />
 			</Switch>
 		</Router>
 	);

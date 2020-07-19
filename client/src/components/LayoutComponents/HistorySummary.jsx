@@ -9,31 +9,37 @@ import {
 	ListItemAvatar,
 	Grid,
 } from '@material-ui/core';
-import { Link } from 'react-router-dom';
-
+import { Redirect, Link } from 'react-router-dom';
+import { useParams } from 'react-router';
+import { makeStyles } from '@material-ui/core/styles';
 import swal from 'sweetalert';
 import axios from 'axios';
-import LoaderProgress from '../../CommonComponents/LoaderProgress';
+import LoaderProgress from '../CommonComponents/LoaderProgress';
 import { Person } from '@material-ui/icons';
-import HistoryStyle from './HistoryStyle';
+import HistorySummaryStyle from './HistorySummaryStyle';
 
-export default function History() {
-	const classes = HistoryStyle();
+export default function HistorySummary() {
+	const classes = HistorySummaryStyle();
 	const [employees, setEmployees] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
+	const id = useParams();
+
 	useEffect(() => {
 		axios
-			.get('/api/employees')
+			.get(`/api/history/${id.id}`)
 			.then((result) => {
 				const emp = { ...result.data.data };
-
+				console.log(emp);
 				setEmployees(emp);
 			})
 			.catch((err) => {
 				if (err.response.data) swal('Error', err.response.data.messag, 'error');
 			});
 	}, []);
-
+	const handleClick = (id) => {
+		// console.log('id', id);
+		// return <Link to={`/dashboard/history/${id}`} />;
+	};
 	const buildList = (employee) => {
 		const empNames = [];
 		if (!employee) {
@@ -50,8 +56,12 @@ export default function History() {
 							{/* <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" /> */}
 							<Person color="disabled" fontSize="large" />
 						</ListItemAvatar>
-						<ListItemText primary={empValue.name} display="flex" />
+						<ListItemText
+							primary={empValue.reviewer_name}
+							className={classes.lockk}
+						/>
 						<Button
+							// onClick={handleClick(empValue.id)}
 							variant="contained"
 							// color="primary"
 						>
