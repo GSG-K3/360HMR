@@ -17,6 +17,7 @@ export default makeStyles((theme) => ({
 	// 	width: 200,
 	// },
 	listItem: {
+		bgcolor: 'info.main',
 		display: 'flex',
 		width: '94%',
 		display: 'flex',
@@ -30,6 +31,6 @@ export default makeStyles((theme) => ({
 		marginRight: theme.spacing(15),
 	},
 	ItemText: {
-		// marginLeft: theme.spacing(85),
+		marginLeft: theme.spacing(85),
 	},
 }));

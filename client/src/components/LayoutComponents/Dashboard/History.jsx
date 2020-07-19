@@ -61,7 +61,7 @@ export default function AddNewMember() {
 							/>
 							<Button
 								onClick={handleClick}
-								color="primary"
+								color="text.secondary"
 								variant="contained"
 								size="larg"
 							>
