@@ -20,7 +20,7 @@ class Dashboard extends Component {
 		return (
 			<Fragment>
 				<NavBar history={this.props.history} />
-				<h1>Welcome to your Dashborad {this.state.user.displayName}</h1>
+				<h1>Welcome to your Dashboard {this.state.user.displayName}</h1>
 				<button onClick={this.signOut}>Sign Out</button>
 			</Fragment>
 		);
