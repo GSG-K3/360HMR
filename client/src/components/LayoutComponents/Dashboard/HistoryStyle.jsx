@@ -10,18 +10,13 @@ export default makeStyles((theme) => ({
 		display: 'flex',
 		flexWrap: 'wrap',
 	},
-	// textField: {
-	// 	display: 'flex',
-	// 	marginLeft: theme.spacing(1),
-	// 	marginRight: theme.spacing(1),
-	// 	width: 200,
-	// },
+
 	listItem: {
 		bgcolor: 'info.main',
 		display: 'flex',
 		width: '94%',
 		display: 'flex',
-		// justifyContent: 'space-between',
+
 		height: '120px',
 		margin: theme.spacing(6),
 	},
