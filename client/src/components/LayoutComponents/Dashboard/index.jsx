@@ -1,18 +1,16 @@
 import React, { Fragment, Component } from 'react';
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/firestore';
+import fire from '../../CommonComponents/SignIn/fire';
 
 class Dashboard extends Component {
 	state = { user: {} };
 
 	componentDidMount() {
-		firebase.auth().onAuthStateChanged((user) => {
+		fire.auth().onAuthStateChanged((user) => {
 			this.setState({ user: user });
 		});
 	}
 	signOut = () => {
-		firebase.auth().signOut();
+		fire.auth().signOut();
 		return this.props.history.push('/');
 	};
 	render() {
