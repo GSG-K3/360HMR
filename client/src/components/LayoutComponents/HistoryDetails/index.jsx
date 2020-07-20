@@ -18,8 +18,7 @@ import swal from 'sweetalert';
 import axios from 'axios';
 import LoaderProgress from '../../CommonComponents/LoaderProgress';
 import { Person } from '@material-ui/icons';
-import HistorySummaryStyle from './HistorySummaryStyle';
-import ResultReview from '../TheResult/ResultReview';
+import HistorySummaryStyle from '../History/HistoryStyle';
 
 export default function HistorySummary() {
 	const classes = HistorySummaryStyle();
