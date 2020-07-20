@@ -7,7 +7,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from './theme/MaterialUiTheme';
 
 ReactDOM.render(
-	<MuiThemeProvider theme={theme()}>
+	<MuiThemeProvider theme={theme}>
 		<React.StrictMode>
 			<Grid container direction="column">
 				<App />
