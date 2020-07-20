@@ -1,13 +1,14 @@
-import React, { Fragment } from 'react';
-import { AppBar, Toolbar, IconButton, Grid, Box } from '@material-ui/core';
+import React, { useContext } from 'react';
+import { AppBar, Toolbar, IconButton, Grid } from '@material-ui/core';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import useStyles from './style';
 import Tabs from '../Tabs';
+import { AuthContext } from '../../../Auth';
 
 export default function NavBar(props) {
 	const classes = useStyles();
-	const pathname = props.history.location.pathname;
-	const displayTab = pathname === '/' ? classes.hidden : '';
+	const { currentUser } = useContext(AuthContext);
+	const displayTab = !currentUser ? classes.hidden : '';
 	return (
 		<Grid container>
 			<AppBar position="static" color="default">

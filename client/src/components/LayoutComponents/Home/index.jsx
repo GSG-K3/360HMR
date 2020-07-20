@@ -1,30 +1,24 @@
-import React, { Fragment } from 'react';
+import React, { Component } from 'react';
 import SignIn from '../../CommonComponents/SignIn/index';
+import NavBar from '../../CommonComponents/NavBar';
 import { create } from 'jss';
 import rtl from 'jss-rtl';
-import {
-	StylesProvider,
-	jssPreset,
-	ThemeProvider,
-} from '@material-ui/core/styles';
-import NavBar from '../../CommonComponents/NavBar';
-import Theme from '../../../theme/MaterialUiTheme';
+import { StylesProvider, jssPreset } from '@material-ui/core/styles';
 
 // Configure JSS
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
-function Home(props) {
-	let { history } = props;
-	return (
-		<Fragment>
-			<ThemeProvider theme={Theme}>
+class Home extends Component {
+	render() {
+		return (
+			<div>
 				<StylesProvider jss={jss}>
-					<NavBar history={history} />
+					<NavBar />
 					<SignIn />
 				</StylesProvider>
-			</ThemeProvider>
-		</Fragment>
-	);
+			</div>
+		);
+	}
 }
 
 export default Home;
