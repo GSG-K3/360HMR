@@ -24,23 +24,23 @@ export default function ResultReview(data) {
 	const [result, setResult] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 	const id = useParams();
-
+	console.log(id, 'id');
 	const theData = data.location.state;
 	console.log(theData);
-	// const theData={...data.location.state};
-	// setResult(TheData);
-	// useEffect(() => {
-	// 	axios
-	// 		.get(`/api/history/${id.id}`)
-	// 		.then((result) => {
-	// 			const emp = { ...result.data.data };
-	// 			console.log(emp);
-	// 			setEmployees(emp);
-	// 		})
-	// 		.catch((err) => {
-	// 			if (err.response.data) swal('Error', err.response.data.messag, 'error');
-	// 		});
-	// }, []);
+	const theData = { ...data.location.state };
+	setResult(TheData);
+	useEffect(() => {
+		axios
+			.get(`/api/dashboard/history/${id}/response/${id}`)
+			.then((result) => {
+				const emp = { ...result.data.data };
+				console.log(emp);
+				setEmployees(emp);
+			})
+			.catch((err) => {
+				if (err.response.data) swal('Error', err.response.data.messag, 'error');
+			});
+	}, []);
 	const handleClick = (id) => {
 		// console.log('id', id);
 		// return <Link to={`/dashboard/history/${id}`} />;
