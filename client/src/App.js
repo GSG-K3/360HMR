@@ -1,24 +1,32 @@
-import React, { Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Form from './components/LayoutComponents/Form';
-import NewMember from './components/LayoutComponents/Dashboard/NewMember';
+import React from 'react';
+import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import NewMember from './components/LayoutComponents/NewMember';
+import History from './components/LayoutComponents/History';
 import Home from './components/LayoutComponents/Home';
 import Dashboard from './components/LayoutComponents/Dashboard';
-import History from './components/LayoutComponents/Dashboard/History';
+import Form from './components/LayoutComponents/Form';
+import { AuthProvider } from './Auth';
+import PrivateRoute from './PrivateRoute';
 
 function App() {
 	return (
-		<Fragment>
+		<AuthProvider>
 			<Router>
 				<Switch>
 					<Route path="/" exact component={Home} />
-					<Route path="/dashboard" exact component={Dashboard} />
-					<Route path="/dashboard/form" exact component={Form} />
-					<Route exact path="/dashboard/new-employee" component={NewMember} />
-					<Route path="/dashboard/history" exact component={History} />
+					<PrivateRoute path="/dashboard" exact component={Dashboard} />
+					<PrivateRoute path="/dashboard/form" exact component={Form} />
+					<PrivateRoute
+						exact
+						path="/dashboard/new-employee"
+						component={NewMember}
+					/>
+					<PrivateRoute path="/dashboard/history" exact component={History} />
 				</Switch>
 			</Router>
-		</Fragment>
+		</AuthProvider>
 	);
 }
+
 export default App;
