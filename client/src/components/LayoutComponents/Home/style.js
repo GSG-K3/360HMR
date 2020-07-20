@@ -2,7 +2,7 @@ const Style = (theme) => ({
 	paper: {
 		background: '#E4DDDD',
 		width: 1170,
-		height: '100%',
+		height: 765,
 		[theme.breakpoints.down('1160')]: {
 			height: 532,
 			width: 933,
@@ -23,6 +23,14 @@ const Style = (theme) => ({
 	},
 	container: {
 		height: '100%',
+	},
+	header: {
+		fontFamily: theme.fontFamily,
+		letterSpacing: 1,
+		textAlign: 'inherit',
+	},
+	textContainer: {
+		marginBottom: 96,
 	},
 });
 

@@ -17,15 +17,15 @@ class Home extends Component {
 						alignItems="center"
 						className={classes.container}
 					>
-						<Grid item xs={6} container className={classes.container}>
+						<Grid item xs={5} container className={classes.container}>
 							<img
 								src={require('../../../assets/home.png')}
 								alt="home"
 								className={classes.image}
 							/>
 						</Grid>
-						<Grid item xs={6} container justify="center" spacing={4}>
-							<Grid item>
+						<Grid item xs={7} container justify="center">
+							<Grid item className={classes.textContainer}>
 								<Typography
 									variant="h3"
 									component="h2"
@@ -34,7 +34,14 @@ class Home extends Component {
 								>
 									نظام إدارة الموارد البشرية
 								</Typography>
-								<Typography variant="h5" component="h2" gutterBottom>
+								<br />
+								<br />
+								<Typography
+									variant="h5"
+									component="h2"
+									gutterBottom
+									className={classes.header}
+								>
 									تقييم أداء الموظف بشكل كلي عبر شركتك. يمكنك إعداد التقارير
 									وفقًا لمواصفاتك الدقيقة اجمع التعليقات من الأشخاص المناسبين في
 									الوقت المناسب. قم بتقييم الأداء بشكل كلي واجعل الجميع في نفس

@@ -16,12 +16,12 @@ function App() {
 		<div className="App">
 			<AuthProvider>
 				<Router>
-					<Grid direction="column" container className="Container">
-						<Grid item xs={12}>
+					<Grid direction="row" container>
+						<Grid item xs={12} md={12}>
 							<NavBar />
 						</Grid>
-						<Grid item container className="Container">
-							<Grid item xs={false} md={1} className="Container"></Grid>
+						<Grid item container>
+							<Grid item xs={false} md={1}></Grid>
 							<Grid
 								item
 								container
@@ -29,7 +29,6 @@ function App() {
 								md={10}
 								direction="row"
 								justify="center"
-								className="Container"
 							>
 								<Switch>
 									<Route path="/" exact component={Home} />
@@ -47,7 +46,7 @@ function App() {
 									/>
 								</Switch>
 							</Grid>
-							<Grid item xs={false} md={1} className="Container" />
+							<Grid item xs={false} md={1} />
 						</Grid>
 					</Grid>
 				</Router>

@@ -10,7 +10,7 @@ export default function NavBar(props) {
 	const { currentUser } = useContext(AuthContext);
 	const displayTab = !currentUser ? classes.hidden : '';
 	return (
-		<Grid container>
+		<Grid container className={classes.NavBarContainer}>
 			<AppBar position="static" color="default">
 				<Toolbar>
 					<Grid container wrap="nowrap" spacing={6}>
