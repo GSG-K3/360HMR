@@ -8,6 +8,8 @@ const Theme = createMuiTheme({
 	colors: {
 		purpuleLight: '#3C327B',
 		gray: '#E4DDDD',
+		menuGray: '#C0C0C0',
 	},
+	fontFamily: 'Amiri, serif',
 });
 export default Theme;
