@@ -1,6 +1,5 @@
 import React from 'react';
 import { TextField, Button } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import swal from 'sweetalert';
 import axios from 'axios';
 import NewMemberStyle from './NewMemberStyle';
@@ -121,7 +120,6 @@ export default function AddNewMember() {
 					required
 					name="name"
 					error={!empData.name.isValid}
-					autoFocus={true}
 					id="standard-required"
 					label="Name"
 					onChange={handleChange}
