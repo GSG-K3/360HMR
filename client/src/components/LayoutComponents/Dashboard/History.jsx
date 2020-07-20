@@ -34,10 +34,7 @@ export default function AddNewMember() {
 				if (err.response.data) swal('Error', err.response.data.messag, 'error');
 			});
 	}, []);
-	const handleClick = (id) => {
-		// console.log('id', id);
-		// return <Link to={`/dashboard/history/${id}`} />;
-	};
+
 	const buildList = (employee) => {
 		const empNames = [];
 		if (!employee) {
@@ -59,18 +56,14 @@ export default function AddNewMember() {
 								primary={empValue.name}
 								className={classes.ItemText}
 							/>
-							<Button
-								onClick={handleClick}
-								color="text.secondary"
-								variant="contained"
-								size="larg"
-							>
-								<Link to={`/dashboard/history/${empValue.id}`}> المقيمين</Link>
+							<Button color="text.secondary" variant="contained" size="larg">
+								<Link to={`/dashboard/history/${empValue.employee_id}`}>
+									{' '}
+									المقيمين
+								</Link>
 							</Button>
 						</ListItem>
 					</Box>
-					{/* <Divider variant="fullWidth" component="li"
-					 /> */}
 				</React.Fragment>,
 			);
 		}
