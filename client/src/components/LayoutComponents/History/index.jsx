@@ -4,14 +4,12 @@ import {
 	Box,
 	List,
 	ListItem,
-	Divider,
 	ListItemText,
 	ListItemAvatar,
 	Grid,
-	Avatar,
 } from '@material-ui/core';
-import { Redirect, Link } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import { Link, useHistory } from 'react-router-dom';
+
 import swal from 'sweetalert';
 import axios from 'axios';
 import LoaderProgress from '../../CommonComponents/LoaderProgress';
@@ -19,6 +17,7 @@ import { Person } from '@material-ui/icons';
 import HistoryStyle from './HistoryStyle';
 
 export default function AddNewMember() {
+	const history = useHistory();
 	const classes = HistoryStyle();
 	const [employees, setEmployees] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
@@ -49,18 +48,25 @@ export default function AddNewMember() {
 					<Box boxShadow={2}>
 						<ListItem className={classes.listItem}>
 							<ListItemAvatar>
-								<Avatar alt="Remy Sharp" src="https://ibb.co/1fJgHrv" />
-								{/* <Person color="disabled" fontSize="large" /> */}
+								<Person color="disabled" fontSize="large" />
 							</ListItemAvatar>
 							<ListItemText
 								primary={empValue.name}
 								className={classes.ItemText}
 							/>
-							<Button color="text.secondary" variant="contained" size="larg">
-								<Link to={`/dashboard/history/${empValue.employee_id}`}>
+							<Button
+								color="primary"
+								variant="contained"
+								size="larg"
+								onClick={() =>
+									history.push(`/dashboard/history/${empValue.employee_id}`)
+								}
+							>
+								{/* <Link to={`/dashboard/history/${empValue.employee_id}`}>
 									{' '}
 									المقيمين
-								</Link>
+								</Link> */}
+								المقيمين
 							</Button>
 						</ListItem>
 					</Box>
