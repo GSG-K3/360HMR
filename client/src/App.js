@@ -16,7 +16,7 @@ function App() {
 				<Switch>
 					<Route path="/" exact component={Home} />
 					<PrivateRoute path="/dashboard" exact component={Dashboard} />
-					<Route path="/dashboard/form" exact component={Form} />
+					<PrivateRoute path="/dashboard/form" exact component={Form} />
 					<PrivateRoute
 						exact
 						path="/dashboard/new-employee"
