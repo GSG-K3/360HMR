@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
 import NewMember from './components/LayoutComponents/Dashboard/NewMember';
-
+import History from './components/LayoutComponents/Dashboard/History';
 import Home from './components/LayoutComponents/Home';
 import Dashboard from './components/LayoutComponents/Dashboard';
 
@@ -34,6 +34,7 @@ function App() {
 									path="/dashboard/new-employee"
 									component={NewMember}
 								/>
+								<Route path="/dashboard/history" exact component={History} />
 							</Switch>
 						</Grid>
 						<Grid item xs={false} md={1} className="Container" />
