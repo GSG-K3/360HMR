@@ -69,6 +69,10 @@ export default function HistorySummary() {
 							onClick={() =>
 								history.push(
 									`/dashboard/history/${id.id}/response/${empValue.reviewer_name}`,
+									{
+										question: empValue.question,
+										context_answer: empValue.context_answer,
+									},
 								)
 							}
 							variant="contained"

@@ -19,12 +19,16 @@ import LoaderProgress from '../../CommonComponents/LoaderProgress';
 import { Person } from '@material-ui/icons';
 import ResultReviewStyle from './ResultReviewStyle';
 
-export default function HistorySummary() {
+export default function ResultReview(data) {
 	const classes = ResultReviewStyle();
-	const [employees, setEmployees] = useState(null);
+	const [result, setResult] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 	const id = useParams();
 
+	const theData = data.location.state;
+	console.log(theData);
+	// const theData={...data.location.state};
+	// setResult(TheData);
 	// useEffect(() => {
 	// 	axios
 	// 		.get(`/api/history/${id.id}`)
@@ -80,7 +84,9 @@ export default function HistorySummary() {
 	return (
 		<Box>
 			{/* <LoaderProgress isLoading={isLoading} /> */}
-			<Typography>hi</Typography>
+
+			<Typography>{theData.question}</Typography>
+			<Typography>{theData.context_answer}</Typography>
 			{/* <List>{buildList(employees)}</List> */}
 		</Box>
 	);
