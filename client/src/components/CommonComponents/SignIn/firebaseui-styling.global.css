@@ -1,0 +1,27 @@
+.firebaseui-idp-google > .firebaseui-idp-text {
+	color: white !important;
+	font-size: 21px;
+}
+
+.firebaseui-idp-text.firebaseui-idp-text-long {
+	padding-left: 59px;
+}
+.firebaseui-idp-favicon,
+.firebaseui-idp-icon {
+	display: none !important ;
+}
+
+.firebaseui-idp-button {
+	text-align: center !important;
+}
+
+.mdl-button {
+	width: 332px !important;
+	height: 62px !important;
+	background-color: #0d005b !important;
+	max-width: none !important;
+	min-height: none !important;
+}
+.firebaseui-container {
+	text-align: center !important;
+}
