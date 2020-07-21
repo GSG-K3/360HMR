@@ -2,17 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { Grid } from '@material-ui/core';
-import { MuiThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core';
 import theme from './theme/MaterialUiTheme';
+import { StylesProvider, jssPreset } from '@material-ui/core/styles';
+import { create } from 'jss';
+import rtl from 'jss-rtl';
+
+// Configure JSS
+const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
 ReactDOM.render(
-	<MuiThemeProvider theme={theme}>
-		<React.StrictMode>
-			<Grid container direction="column">
+	<React.StrictMode>
+		<ThemeProvider theme={theme}>
+			<StylesProvider jss={jss}>
 				<App />
-			</Grid>
-		</React.StrictMode>
-	</MuiThemeProvider>,
+			</StylesProvider>
+		</ThemeProvider>
+	</React.StrictMode>,
 	document.getElementById('root'),
 );

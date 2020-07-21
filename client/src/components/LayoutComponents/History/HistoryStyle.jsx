@@ -12,20 +12,15 @@ export default makeStyles((theme) => ({
 	},
 
 	listItem: {
-		bgcolor: 'info.main',
-		display: 'flex',
-		width: '94%',
+		width: '90%',
 		display: 'flex',
 
 		height: '120px',
 		margin: theme.spacing(6),
 	},
 	list: {
-		width: '80%',
+		width: '150%',
 
 		marginRight: theme.spacing(15),
-	},
-	ItemText: {
-		marginLeft: theme.spacing(85),
 	},
 }));

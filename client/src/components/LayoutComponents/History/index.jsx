@@ -62,10 +62,6 @@ export default function AddNewMember() {
 									history.push(`/dashboard/history/${empValue.employee_id}`)
 								}
 							>
-								{/* <Link to={`/dashboard/history/${empValue.employee_id}`}>
-									{' '}
-									المقيمين
-								</Link> */}
 								المقيمين
 							</Button>
 						</ListItem>
