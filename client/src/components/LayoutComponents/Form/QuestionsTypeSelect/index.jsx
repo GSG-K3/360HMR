@@ -11,9 +11,6 @@ export default (props) => {
 	const classes = useStyles();
 	return (
 		<FormControl className={classes.formControl}>
-			<InputLabel htmlFor="type-native-helper" className={classes.option}>
-				نوع السؤال
-			</InputLabel>
 			<NativeSelect
 				value={props.newQuestionType}
 				onChange={props.handleSelectNewQuestionType}
@@ -24,9 +21,9 @@ export default (props) => {
 				fullWidth={true}
 				className={classes.select}
 			>
-				{/* <option value="" className={classes.option}>
+				<option value="" className={classes.option}>
 					نوع السؤال
-				</option> */}
+				</option>
 				<option value="Write" className={classes.option}>
 					نصي
 				</option>
@@ -34,7 +31,6 @@ export default (props) => {
 					تقييم
 				</option>
 			</NativeSelect>
-			<FormHelperText>اختار نوع السؤال الذي تريد اضافته</FormHelperText>
 		</FormControl>
 	);
 };

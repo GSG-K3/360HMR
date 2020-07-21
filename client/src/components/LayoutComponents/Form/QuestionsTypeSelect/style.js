@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	select: {
 		backgroundColor: 'white',
-		height: 75,
+		height: 56,
 	},
 	text: {
 		color: 'black',

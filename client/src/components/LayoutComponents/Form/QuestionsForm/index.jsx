@@ -19,8 +19,13 @@ export default () => {
 			}) => {
 				return (
 					<Fragment>
-						<Grid container justify="center" className={classes.form}>
-							<Grid item container>
+						<Grid
+							container
+							justify="center"
+							className={classes.form}
+							spacing={2}
+						>
+							<Grid item container justify="space-evenly" alignItems="center">
 								<Grid item className={classes.width}>
 									<TextField
 										id="outlined-basic"
@@ -42,12 +47,13 @@ export default () => {
 									/>
 								</Grid>
 							</Grid>
-							<Grid item container>
-								<Grid item>
+							<Grid item container direction="row" justify="flex-end">
+								<Grid item className={classes.btnGrid}>
 									<Button
 										variant="contained"
-										color="secondary"
+										color="primary"
 										onClick={handleAddQuestionClick}
+										className={classes.btn}
 									>
 										اضافة السؤال
 									</Button>
@@ -55,8 +61,9 @@ export default () => {
 								<Grid item>
 									<Button
 										variant="contained"
-										color="secondary"
+										color="primary"
 										onClick={handleSubmit}
+										className={classes.btn}
 									>
 										التالي
 									</Button>
