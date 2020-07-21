@@ -4,13 +4,12 @@ import {
 	Box,
 	List,
 	ListItem,
-	Divider,
 	ListItemText,
 	ListItemAvatar,
 	Grid,
 } from '@material-ui/core';
-import { Redirect, Link } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import { Link, useHistory } from 'react-router-dom';
+
 import swal from 'sweetalert';
 import axios from 'axios';
 import LoaderProgress from '../../CommonComponents/LoaderProgress';
@@ -18,6 +17,7 @@ import { Person } from '@material-ui/icons';
 import HistoryStyle from './HistoryStyle';
 
 export default function AddNewMember() {
+	const history = useHistory();
 	const classes = HistoryStyle();
 	const [employees, setEmployees] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
@@ -33,10 +33,7 @@ export default function AddNewMember() {
 				if (err.response.data) swal('Error', err.response.data.messag, 'error');
 			});
 	}, []);
-	const handleClick = (id) => {
-		// console.log('id', id);
-		// return <Link to={`/dashboard/history/${id}`} />;
-	};
+
 	const buildList = (employee) => {
 		const empNames = [];
 		if (!employee) {
@@ -48,22 +45,27 @@ export default function AddNewMember() {
 
 			empNames.push(
 				<React.Fragment>
-					<ListItem alignItems="center">
-						<ListItemAvatar>
-							{/* <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" /> */}
-							<Person color="disabled" fontSize="large" />
-						</ListItemAvatar>
-						<ListItemText primary={empValue.name} display="flex" />
-						<Button
-							// onClick={handleClick(empValue.id)}
-							variant="contained"
-							// color="primary"
-						>
-							<Link to={`/dashboard/history/${empValue.id}`}>view</Link>"
-						</Button>
-					</ListItem>
-
-					<Divider variant="fullWidth" component="li" />
+					<Box boxShadow={2}>
+						<ListItem className={classes.listItem}>
+							<ListItemAvatar>
+								<Person color="disabled" fontSize="large" />
+							</ListItemAvatar>
+							<ListItemText
+								primary={empValue.name}
+								className={classes.ItemText}
+							/>
+							<Button
+								color="primary"
+								variant="contained"
+								size="larg"
+								onClick={() =>
+									history.push(`/dashboard/history/${empValue.employee_id}`)
+								}
+							>
+								المقيمين
+							</Button>
+						</ListItem>
+					</Box>
 				</React.Fragment>,
 			);
 		}
@@ -74,9 +76,9 @@ export default function AddNewMember() {
 	};
 
 	return (
-		<Box>
+		<Box m={3}>
 			<LoaderProgress isLoading={isLoading} />
-			<List>{buildList(employees)}</List>
+			<List className={classes.list}>{buildList(employees)}</List>
 		</Box>
 	);
 }

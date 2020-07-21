@@ -10,10 +10,17 @@ export default makeStyles((theme) => ({
 		display: 'flex',
 		flexWrap: 'wrap',
 	},
-	textField: {
+
+	listItem: {
+		width: '90%',
 		display: 'flex',
-		marginLeft: theme.spacing(1),
-		marginRight: theme.spacing(1),
-		width: 200,
+
+		height: '120px',
+		margin: theme.spacing(6),
+	},
+	list: {
+		width: '150%',
+
+		marginRight: theme.spacing(15),
 	},
 }));
