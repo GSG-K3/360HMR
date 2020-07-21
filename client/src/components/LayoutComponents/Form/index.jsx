@@ -1,19 +1,14 @@
 import React, { Fragment, Component } from 'react';
-import {
-	Checkbox,
-	FormControlLabel,
-	Grid,
-	TextField,
-	Select,
-	MenuItem,
-	InputLabel,
-	Button,
-	FormControl,
-} from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 import axios from 'axios';
 import Alert from '@material-ui/lab/Alert';
-import Dialog from '../../CommonComponents/Dialog';
-
+import uuid from 'react-uuid';
+import LoaderProgress from '../../CommonComponents/Loader/LoaderProgress';
+import QuestionsList from './QuestionsList';
+import QuestionsForm from './QuestionsForm/index';
+import context from './Context';
+import Style from './style';
+import { withStyles } from '@material-ui/core/styles';
 class Form extends Component {
 	state = {
 		questions: [],
@@ -54,7 +49,7 @@ class Form extends Component {
 	};
 
 	handleChangeNewQuestionText = (event) => {
-		let { value } = event.target;
+		const { value } = event.target;
 
 		this.setState({ newQuestionText: value });
 	};
@@ -80,9 +75,8 @@ class Form extends Component {
 			})
 			.then(({ data }) => {
 				if (!data.message) return this.setState({ error: data.message });
-				const newId = this.state.questions.length;
 				let json = {
-					id: newId,
+					id: uuid(),
 					type: this.state.newQuestionType,
 					context: this.state.newQuestionText,
 				};
@@ -103,89 +97,66 @@ class Form extends Component {
 		this.setState({ submitDialogOpen: false });
 	};
 	render() {
-		console.log(this.state.selectedQuestions, this.state.questions);
+		const { classes } = this.props;
 		return (
-			<Fragment>
-				<Grid>
-					{this.state.loading ? (
-						<h1>Please wait its loading </h1>
-					) : this.state.error ? (
-						<Alert severity="error">{this.state.error}</Alert>
-					) : (
-						this.state.questions.map((question, index) => {
-							return (
-								<FormControlLabel
-									control={
-										<Checkbox
-											checked={Boolean(
-												this.state.selectedQuestions[question.id],
-											)}
-											onChange={() => this.handleCheckQuestion(question)}
-											name={question.context}
-											color="primary"
-										/>
-									}
-									label={question.context}
-									key={index}
-								/>
-							);
-						})
-					)}
-				</Grid>
-				<Grid>
-					<TextField
-						id="outlined-basic"
-						label="write a question ..."
-						variant="outlined"
-						name="newQuestionText"
-						onChange={this.handleChangeNewQuestionText}
-					/>
-				</Grid>
-				{this.state.typeError ? (
-					<Alert severity="warning">{this.state.typeError}</Alert>
-				) : null}
-				<Grid>
-					<FormControl>
-						<InputLabel id="select-label">Type</InputLabel>
-						<Select
-							labelId="select-label"
-							id="demo-simple-select"
-							label="Type"
-							value={this.state.newQuestionType}
-							onChange={this.handleSelectNewQuestionType}
+			<context.Provider
+				value={{
+					handleChangeNewQuestionText: this.handleChangeNewQuestionText,
+					typeError: this.state.typeError,
+					newQuestionType: this.state.newQuestionType,
+					handleSelectNewQuestionType: this.handleSelectNewQuestionType,
+					handleAddQuestionClick: this.handleAddQuestionClick,
+					handleSubmit: this.handleSubmit,
+				}}
+			>
+				<Fragment>
+					<LoaderProgress isLoading={this.state.loading} />
+					<Grid
+						container
+						direction="column"
+						justify="center"
+						alignContent="center"
+					>
+						<Grid
+							item
+							container
+							direction="column"
+							justify="center"
+							alignContent="center"
+							className={classes.questionListContainer}
 						>
-							<MenuItem value="Rate">Rate</MenuItem>
-							<MenuItem value="Content">Content</MenuItem>
-							<MenuItem value="Mullti">Mullti</MenuItem>
-						</Select>
-					</FormControl>
-					<Button
-						variant="contained"
-						color="secondary"
-						onClick={this.handleAddQuestionClick}
-					>
-						Add Question
-					</Button>
-				</Grid>
-				<Grid>
-					<br></br>
-					<Button
-						variant="contained"
-						color="secondary"
-						onClick={this.handleSubmit}
-					>
-						Submit
-					</Button>
-				</Grid>
-				<Grid>
-					<Dialog
-						open={this.state.submitDialogOpen}
-						handleClose={this.handleClose}
-					/>
-				</Grid>
-			</Fragment>
+							<Paper elevation={3} className={classes.paper}>
+								{this.state.error ? (
+									<Alert severity="error">{this.state.error}</Alert>
+								) : (
+									this.state.questions.map((question, index) => {
+										return (
+											<QuestionsList
+												key={index}
+												index={index}
+												selectedQuestions={this.state.selectedQuestions}
+												question={question}
+												handleCheckQuestion={this.handleCheckQuestion}
+											/>
+										);
+									})
+								)}
+							</Paper>
+						</Grid>
+						<Grid
+							item
+							container
+							direction="column"
+							justify="center"
+							className={classes.form}
+						>
+							<QuestionsForm />
+						</Grid>
+					</Grid>
+				</Fragment>
+			</context.Provider>
 		);
 	}
 }
 
-export default Form;
+export default withStyles(Style)(Form);

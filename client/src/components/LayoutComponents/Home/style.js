@@ -13,6 +13,7 @@ const Style = (theme) => ({
 		flexDirection: 'row',
 		justifyContent: 'center',
 		height: '100%',
+		marginTop: 50,
 	},
 	image: {
 		height: '100%',

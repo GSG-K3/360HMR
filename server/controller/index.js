@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const insertQuestions = require('./insertQuestions');
-const getQuestions = require('./getQuestions');
+const insertQuestions = require('./questions/insertQuestions');
+const getQuestions = require('./questions/getQuestions');
 const { getForms } = require('./forms/getForms');
 const addNewEmployee = require('./employees/addNewEmployee');
 const getEmployees = require('./employees/getEmployees');
