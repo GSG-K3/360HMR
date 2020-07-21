@@ -10,10 +10,28 @@ export default makeStyles((theme) => ({
 		display: 'flex',
 		flexWrap: 'wrap',
 	},
-	textField: {
+
+	listItem: {
 		display: 'flex',
-		marginLeft: theme.spacing(1),
-		marginRight: theme.spacing(1),
-		width: 200,
+		width: '94%',
+		display: 'flex',
+		height: '120px',
+		margin: theme.spacing(6),
+	},
+	theSeclist: {
+		display: 'flex',
+		width: '94%',
+		display: 'flex',
+		alignItems: 'flex-end',
+		height: '90px',
+		margin: theme.spacing(6),
+	},
+	list: {
+		width: '80%',
+
+		marginRight: theme.spacing(15),
+	},
+	ItemText: {
+		marginLeft: theme.spacing(85),
 	},
 }));

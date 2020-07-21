@@ -17,25 +17,22 @@ import swal from 'sweetalert';
 import axios from 'axios';
 import LoaderProgress from '../../CommonComponents/LoaderProgress';
 import { Person } from '@material-ui/icons';
-import ResultReviewStyle from './ResultReviewStyle';
+// import ResultReviewStyle from './ResultReviewStyle';
 
-export default function ResultReview(data) {
-	const classes = ResultReviewStyle();
+export default function ResultReview() {
 	const [result, setResult] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
-	const id = useParams();
-	console.log(id, 'id');
-	const theData = data.location.state;
-	console.log(theData);
-	const theData = { ...data.location.state };
-	setResult(TheData);
+	const params = useParams();
+
+	// const theData = { ...data.location.state };
+	// setResult(TheData);
 	useEffect(() => {
 		axios
-			.get(`/api/dashboard/history/${id}/response/${id}`)
+			.get(`/api/dashboard/history/${params.id}/response/${params.name}`)
 			.then((result) => {
 				const emp = { ...result.data.data };
 				console.log(emp);
-				setEmployees(emp);
+				setResult(emp);
 			})
 			.catch((err) => {
 				if (err.response.data) swal('Error', err.response.data.messag, 'error');
@@ -45,49 +42,37 @@ export default function ResultReview(data) {
 		// console.log('id', id);
 		// return <Link to={`/dashboard/history/${id}`} />;
 	};
-	// const buildList = (employee) => {
-	// 	const empNames = [];
-	// 	if (!employee) {
-	// 		return empNames;
-	// 	}
-	// 	const keyLength = Object.keys(employee).length;
-	// 	for (let emp of Object.keys(employee)) {
-	// 		const empValue = employee[emp];
+	const buildAnswers = (results) => {
+		const empNames = [];
+		if (!results) {
+			return empNames;
+		}
+		let count = 1;
+		const keyLength = Object.keys(results).length;
+		for (let emp of Object.keys(results)) {
+			const empValue = results[emp];
 
-	// 		empNames.push(
-	// 			<React.Fragment>
-	// 				<ListItem alignItems="center">
-	// 					<ListItemAvatar>
-	// 						{/* <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" /> */}
-	// 						<Person color="disabled" fontSize="large" />
-	// 					</ListItemAvatar>
-	// 					<ListItemText primary={empValue.reviewer_name} />
-	// 					<Button
-	// 						// onClick={handleClick(empValue.id)}
-	// 						variant="contained"
-	// 						// color="primary"
-	// 					>
-	// 						<Link to={`/dashboard/history/${empValue.id}`}>view</Link>"
-	// 					</Button>
-	// 				</ListItem>
+			empNames.push(
+				<React.Fragment>
+					<Typography variant="h5">Question{count++} </Typography>
+					<Typography>{empValue.question}</Typography>
+					<Typography>{empValue.context_answer}</Typography>
+					<Divider variant="middle" />
+				</React.Fragment>,
+			);
+		}
 
-	// 				<Divider variant="fullWidth" component="li" />
-	// 			</React.Fragment>,
-	// 		);
-	// 	}
-	// 	if (empNames.length === keyLength && isLoading) {
-	// 		setIsLoading(false);
-	// 	}
-	// 	return empNames;
-	// };
+		if (empNames.length === keyLength && isLoading) {
+			setIsLoading(false);
+		}
+		return empNames;
+	};
 
 	return (
 		<Box>
-			{/* <LoaderProgress isLoading={isLoading} /> */}
+			<LoaderProgress isLoading={isLoading} />
 
-			<Typography>{theData.question}</Typography>
-			<Typography>{theData.context_answer}</Typography>
-			{/* <List>{buildList(employees)}</List> */}
+			<React.Fragment>{buildAnswers(result)}</React.Fragment>
 		</Box>
 	);
 }

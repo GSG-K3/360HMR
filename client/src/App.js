@@ -3,8 +3,10 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NewMember from './components/LayoutComponents/NewMember';
 import History from './components/LayoutComponents/History';
+import HistoryDetails from './components/LayoutComponents/HistoryDetails';
 import Home from './components/LayoutComponents/Home';
 import Dashboard from './components/LayoutComponents/Dashboard';
+import ResultReview from './components/LayoutComponents/TheResult';
 import Form from './components/LayoutComponents/Form';
 import { AuthProvider } from './Auth';
 import PrivateRoute from './PrivateRoute';
@@ -26,7 +28,7 @@ function App() {
 					<PrivateRoute
 						path="/dashboard/history/:id"
 						exact
-						component={HistorySummary}
+						component={HistoryDetails}
 					/>
 					<PrivateRoute
 						path="/dashboard/history/:id/response/:name"

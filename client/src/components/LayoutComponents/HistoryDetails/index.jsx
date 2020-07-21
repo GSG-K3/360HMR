@@ -9,17 +9,15 @@ import {
 	ListItemAvatar,
 	Grid,
 } from '@material-ui/core';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router';
-import { makeStyles } from '@material-ui/core/styles';
+
 import swal from 'sweetalert';
 import axios from 'axios';
 import LoaderProgress from '../../CommonComponents/LoaderProgress';
 import { Person } from '@material-ui/icons';
-import HistorySummaryStyle from './HistorySummaryStyle';
-import ResultReview from '../TheResult/ResultReview';
+import HistorySummaryStyle from '../History/HistoryStyle';
 
 export default function HistorySummary() {
 	const classes = HistorySummaryStyle();
@@ -40,11 +38,7 @@ export default function HistorySummary() {
 				if (err.response.data) swal('Error', err.response.data.messag, 'error');
 			});
 	}, []);
-	const handleClick = () => {
-		history.push('/dashboard/history/1/response/ruba', {
-			erw: 'er',
-		});
-	};
+
 	const buildList = (employee) => {
 		const empNames = [];
 		if (!employee) {
@@ -56,33 +50,29 @@ export default function HistorySummary() {
 
 			empNames.push(
 				<React.Fragment>
-					<ListItem alignItems="center">
-						<ListItemAvatar>
-							{/* <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" /> */}
-							<Person color="disabled" fontSize="large" />
-						</ListItemAvatar>
-						<ListItemText
-							primary={empValue.reviewer_name}
-							className={classes.lockk}
-						/>
-						<Button
-							onClick={() =>
-								history.push(
-									`/dashboard/history/${id.id}/response/${empValue.reviewer_name}`,
-									{
-										question: empValue.question,
-										context_answer: empValue.context_answer,
-									},
-								)
-							}
-							variant="contained"
-							// color="primary"
-						>
-							{/* <Link to={`/dashboard/history/${empValue.id}`}>view</Link>" */}
-						</Button>
-					</ListItem>
-
-					<Divider variant="fullWidth" component="li" />
+					<Box boxShadow={2}>
+						<ListItem className={classes.theSeclist}>
+							<ListItemAvatar>
+								<Person color="disabled" fontSize="large" />
+							</ListItemAvatar>
+							<ListItemText
+								primary={empValue.reviewer_name}
+								className={classes.ItemText}
+							/>
+							<Button
+								onClick={() =>
+									history.push(
+										`/dashboard/history/${id.id}/response/${empValue.reviewer_name}`,
+									)
+								}
+								variant="contained"
+								color="primary"
+								size="large"
+							>
+								التقييم
+							</Button>
+						</ListItem>
+					</Box>
 				</React.Fragment>,
 			);
 		}
@@ -93,9 +83,9 @@ export default function HistorySummary() {
 	};
 
 	return (
-		<Box>
+		<Box m={3}>
 			<LoaderProgress isLoading={isLoading} />
-			<List>{buildList(employees)}</List>
+			<List className={classes.list}>{buildList(employees)}</List>
 		</Box>
 	);
 }
