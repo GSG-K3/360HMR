@@ -1,6 +1,5 @@
 import React, { Fragment, Component } from 'react';
 import fire from '../../CommonComponents/SignIn/fire';
-import NavBar from '../../CommonComponents/NavBar';
 import { AuthContext } from '../../../Auth';
 import { Redirect } from 'react-router-dom';
 
@@ -22,7 +21,6 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<Fragment>
-				<NavBar />
 				<h1>Welcome to your Dashboard {this.state.user.displayName}</h1>
 				<button onClick={this.signOut}>Sign Out</button>
 			</Fragment>

@@ -7,7 +7,6 @@ import {
 	Divider,
 	ListItemText,
 	ListItemAvatar,
-	Grid,
 } from '@material-ui/core';
 
 import { useHistory } from 'react-router-dom';

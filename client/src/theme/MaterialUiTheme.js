@@ -1,5 +1,6 @@
 import { createMuiTheme } from '@material-ui/core';
-const Theme = createMuiTheme({
+
+export default createMuiTheme({
 	direction: 'rtl',
 	palette: {
 		primary: { main: '#0D005B' },
@@ -12,4 +13,3 @@ const Theme = createMuiTheme({
 	},
 	fontFamily: 'Amiri, serif',
 });
-export default Theme;

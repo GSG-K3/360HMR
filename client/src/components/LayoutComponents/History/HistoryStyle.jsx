@@ -27,11 +27,11 @@ export default makeStyles((theme) => ({
 		margin: theme.spacing(6),
 	},
 	list: {
-		width: '80%',
+		width: '100%',
 
 		marginRight: theme.spacing(15),
 	},
 	ItemText: {
-		marginLeft: theme.spacing(85),
+		marginRight: theme.spacing(55),
 	},
 }));
