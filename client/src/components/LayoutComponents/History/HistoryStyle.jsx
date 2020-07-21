@@ -12,15 +12,14 @@ export default makeStyles((theme) => ({
 	},
 
 	listItem: {
-		display: 'flex',
-		width: '94%',
+		width: '90%',
 		display: 'flex',
 		height: '120px',
 		margin: theme.spacing(6),
 	},
 	theSeclist: {
 		display: 'flex',
-		width: '94%',
+		width: '90%',
 		display: 'flex',
 		alignItems: 'flex-end',
 		height: '90px',
