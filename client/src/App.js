@@ -4,8 +4,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
 import NewMember from './components/LayoutComponents/NewMember';
 import History from './components/LayoutComponents/History';
+import HistoryDetails from './components/LayoutComponents/HistoryDetails';
 import Home from './components/LayoutComponents/Home';
 import Dashboard from './components/LayoutComponents/Dashboard';
+import ResultReview from './components/LayoutComponents/TheResult';
 import Form from './components/LayoutComponents/Form';
 import NavBar from './components/CommonComponents/NavBar';
 import { AuthProvider } from './Auth';
@@ -43,6 +45,16 @@ function App() {
 										path="/dashboard/history"
 										exact
 										component={History}
+									/>
+									<PrivateRoute
+										path="/dashboard/history/:id"
+										exact
+										component={HistoryDetails}
+									/>
+									<PrivateRoute
+										path="/dashboard/history/:id/response/:name"
+										exact
+										component={ResultReview}
 									/>
 								</Switch>
 							</Grid>

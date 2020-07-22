@@ -14,13 +14,23 @@ export default makeStyles((theme) => ({
 	listItem: {
 		width: '90%',
 		display: 'flex',
-
 		height: '120px',
 		margin: theme.spacing(6),
 	},
+	theSeclist: {
+		display: 'flex',
+		width: '90%',
+		display: 'flex',
+		alignItems: 'flex-end',
+		height: '90px',
+		margin: theme.spacing(6),
+	},
 	list: {
-		width: '150%',
+		width: '100%',
 
 		marginRight: theme.spacing(15),
+	},
+	ItemText: {
+		marginRight: theme.spacing(55),
 	},
 }));
