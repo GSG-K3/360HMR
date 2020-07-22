@@ -1,32 +1,22 @@
 ### What does this PR do?
 
-- Call the Create Form Page with http://localhost:3000/dashboard/form endpoint.
+- Call the history details Page with http://localhost:3000/dashboard/history/:id
+  endpoint.
 
-* On the create form page the manager will be able to click the default
-  questions where listed on the page.
+on this page you can see a list of employees who reviewed the employee id above
 
-- Bring the default questions from the database through query called
-  getquestionsQuery showing the loading or error if there something bad happens
-  through the request.
+using a query named getEmpById to get the reviewer name from database
 
-* Adding the new question which the manager has to type it down on the text
-  field and picking the type of question through the Add button.
+use axios.get(/api/history/\${id}') you get the id from using useParams() to get
+the result to the front end
 
-- The new question will be added into the database through the
-  insertQuestionsQuery.
-
-* The new question will be displayed also with the listed default questions.
-
-- If the manager didn't type the question or pick the type. The alert error will
-  be displayed.
-
-* Submit button will display a dialog component for confirming the submitting
-  the form questions ( still not all the functionality of the buttons are
-  working waiting for the final design).
+LoaderProgress is used when the page take a time to load the result a loading
+sign will show that the result is not ready yet and when it's ready the loading
+will disapper and the page will view the result
 
 ### Does this Fix an Issue?
 
-Fixes #37
+Fixes #64
 
 ### How to test this PR
 
@@ -37,10 +27,8 @@ Fixes #37
 - cd..
 
 - npm run dev
-- go to http://localhost:3000/dashboard/form endpoint
+- go to http://localhost:3000/dashboard/history/:id endpoint
 
 ### Screenshots of changes
 
-![Create Form Page](https://ibb.co/qJmrnkQ)
-
-# ![Confrim Dialog](https://ibb.co/RYbt3qK)
+https://ibb.co/m9nSqtc

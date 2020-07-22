@@ -7,6 +7,9 @@ const useStyles = makeStyles((theme) => ({
 	hidden: {
 		display: 'none',
 	},
+	NavBarContainer: {
+		marginBottom: 50,
+	},
 }));
 
 export default useStyles;
