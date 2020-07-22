@@ -2,11 +2,20 @@ import React, { useContext } from 'react';
 import useStyles from './style';
 import { Grid, Typography } from '@material-ui/core';
 import { AuthContext } from '../../../Auth';
-
-export default () => {
+import { withRouter } from 'react-router-dom';
+const Header = (props) => {
 	const classes = useStyles();
 	const { currentUser } = useContext(AuthContext);
-	const hidden = !currentUser ? classes.hidden : classes.container;
+	const pathname = props.history.location.pathname;
+	const hidden = pathname === '/' ? classes.hidden : classes.container;
+	const HeaderName =
+		pathname === '/dashboard/history'
+			? 'سجل التقييم'
+			: pathname === '/dashboard/form'
+			? 'إنشاء تقييم جديد '
+			: pathname === '/dashboard/new-employee'
+			? 'إضافة موظف جديد'
+			: null;
 
 	return (
 		<Grid container className={hidden}>
@@ -18,7 +27,7 @@ export default () => {
 				className={classes.headerOne}
 			>
 				<Typography variant="h4" className={classes.title}>
-					إنشاء تقييم جديد
+					{HeaderName}
 				</Typography>
 			</Grid>
 			<Grid item className={classes.headerTwo}>
@@ -27,3 +36,5 @@ export default () => {
 		</Grid>
 	);
 };
+
+export default withRouter(Header);

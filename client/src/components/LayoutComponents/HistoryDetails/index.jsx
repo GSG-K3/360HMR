@@ -14,7 +14,7 @@ import { useParams } from 'react-router';
 
 import swal from 'sweetalert';
 import axios from 'axios';
-import LoaderProgress from '../../CommonComponents/LoaderProgress';
+import LoaderProgress from '../../CommonComponents/Loader/LoaderProgress';
 import { Person } from '@material-ui/icons';
 import HistorySummaryStyle from '../History/HistoryStyle';
 

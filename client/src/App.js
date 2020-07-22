@@ -13,6 +13,7 @@ import NavBar from './components/CommonComponents/NavBar';
 import { AuthProvider } from './Auth';
 import PrivateRoute from './PrivateRoute';
 import Header from './components/CommonComponents/Header';
+import { withRouter } from 'react-router';
 
 function App() {
 	return (
