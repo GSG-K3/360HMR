@@ -1,8 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
-	root: {
+	form: {
 		'& .MuiTextField-root': {
-			margin: theme.spacing(3),
 			width: '25ch',
 		},
 	},
@@ -10,9 +9,31 @@ export default makeStyles((theme) => ({
 		display: 'flex',
 		flexWrap: 'wrap',
 	},
-	textField: {
-		marginLeft: theme.spacing(1),
-		marginRight: theme.spacing(1),
-		width: 200,
+
+	media: {
+		height: 70,
+		paddingTop: '56.25%',
+		width: 400,
+		alignContent: 'center',
+		marginRight: theme.spacing(2),
+		marginTop: theme.spacing(5),
 	},
+	mainBox: {
+		margin: theme.spacing(9),
+	},
+	root: {
+		'text-align': 'center',
+	},
+	theform: {
+		spacing: '2',
+		display: ' flex',
+		direction: 'row',
+		flexWrap: 'wrap',
+	},
+	card: {
+		height: 550,
+
+		backgroundColor: theme.palette.secondary.light,
+	},
+	fullWidth: { width: 250 },
 }));
