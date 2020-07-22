@@ -95,6 +95,10 @@ class Form extends Component {
 
 	handleNext = (event) => {
 		event.preventDefault();
+		if (Object.keys(this.state.selectedQuestions).length === 0)
+			return this.setState({
+				typeError: 'الرجاء اختيار مجموعة من اﻻسئلة ﻻنشاء ملف التقييم',
+			});
 		this.props.history.push('/dashboard/form/step-two');
 	};
 	handleClose = () => {

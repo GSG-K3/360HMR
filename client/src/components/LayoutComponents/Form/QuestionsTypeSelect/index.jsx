@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-	InputLabel,
-	FormHelperText,
-	NativeSelect,
-	FormControl,
-} from '@material-ui/core';
+import { NativeSelect, FormControl } from '@material-ui/core';
 import useStyles from './style';
 
 export default (props) => {
