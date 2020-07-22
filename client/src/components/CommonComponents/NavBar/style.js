@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
 		display: 'none',
 	},
 	NavBarContainer: {
-		marginBottom: 50,
+		// marginBottom: 50,
 	},
 }));
 

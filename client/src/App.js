@@ -12,6 +12,7 @@ import Form from './components/LayoutComponents/Form';
 import NavBar from './components/CommonComponents/NavBar';
 import { AuthProvider } from './Auth';
 import PrivateRoute from './PrivateRoute';
+import Header from './components/CommonComponents/Header';
 
 function App() {
 	return (
@@ -22,8 +23,11 @@ function App() {
 						<Grid item xs={12} md={12}>
 							<NavBar />
 						</Grid>
+						<Grid item xs={12} md={12}>
+							<Header />
+						</Grid>
 						<Grid item container>
-							<Grid item xs={false} md={1}></Grid>
+							<Grid item xs={false} md={1} className="Background"></Grid>
 							<Grid
 								item
 								container
@@ -31,6 +35,7 @@ function App() {
 								md={10}
 								direction="row"
 								justify="center"
+								className="Background"
 							>
 								<Switch>
 									<Route path="/" exact component={Home} />
@@ -58,7 +63,7 @@ function App() {
 									/>
 								</Switch>
 							</Grid>
-							<Grid item xs={false} md={1} />
+							<Grid item xs={false} md={1} className="Background" />
 						</Grid>
 					</Grid>
 				</Router>
