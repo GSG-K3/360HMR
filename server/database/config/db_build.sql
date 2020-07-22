@@ -30,6 +30,7 @@ CREATE TABLE employees_questions
 
   employee_id INT,
   FOREIGN KEY (employee_id)  REFERENCES employees(id),
+  reviewer_name TEXT,
   answer TEXT
 
 );
