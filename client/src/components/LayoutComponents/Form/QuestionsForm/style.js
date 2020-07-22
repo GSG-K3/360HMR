@@ -8,6 +8,10 @@ const useStyles = makeStyles((theme) => ({
 	width: {
 		width: 400,
 	},
+	select: {
+		width: 400,
+		marginLeft: 111,
+	},
 	textfield: {
 		backgroundColor: 'white',
 		fontFamily: theme.fontFamily,

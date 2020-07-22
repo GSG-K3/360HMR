@@ -63,8 +63,7 @@ class Form extends Component {
 			this.state.newQuestionText === ''
 		) {
 			return this.setState({
-				typeError:
-					'Please insert the quesstion & choose the type of the Question!!',
+				typeError: 'الرجاء كتابة السؤال واختيار نوعه!',
 			});
 		}
 		this.setState({ typeError: '' });
@@ -93,6 +92,11 @@ class Form extends Component {
 		event.preventDefault();
 		this.setState({ submitDialogOpen: true });
 	};
+
+	handleNext = (event) => {
+		event.preventDefault();
+		this.props.history.push('/dashboard/form/step-two');
+	};
 	handleClose = () => {
 		this.setState({ submitDialogOpen: false });
 	};
@@ -107,6 +111,7 @@ class Form extends Component {
 					handleSelectNewQuestionType: this.handleSelectNewQuestionType,
 					handleAddQuestionClick: this.handleAddQuestionClick,
 					handleSubmit: this.handleSubmit,
+					handleNext: this.handleNext,
 				}}
 			>
 				<Fragment>

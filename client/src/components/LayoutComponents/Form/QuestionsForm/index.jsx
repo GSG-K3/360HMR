@@ -15,7 +15,7 @@ export default () => {
 				newQuestionType,
 				handleSelectNewQuestionType,
 				handleAddQuestionClick,
-				handleSubmit,
+				handleNext,
 			}) => {
 				return (
 					<Fragment>
@@ -25,7 +25,7 @@ export default () => {
 							className={classes.form}
 							spacing={2}
 						>
-							<Grid item container justify="space-evenly" alignItems="center">
+							<Grid item container justify="center" alignItems="center">
 								<Grid item className={classes.width}>
 									<TextField
 										id="outlined-basic"
@@ -37,17 +37,19 @@ export default () => {
 										className={classes.textfield}
 									/>
 								</Grid>
-								{typeError ? (
-									<Alert severity="warning">{typeError}</Alert>
-								) : null}
-								<Grid item className={classes.width}>
+								<Grid item className={classes.select}>
 									<QuestionsTypeSelect
 										newQuestionType={newQuestionType}
 										handleSelectNewQuestionType={handleSelectNewQuestionType}
 									/>
 								</Grid>
 							</Grid>
-							<Grid item container direction="row" justify="flex-end">
+							<Grid item container direction="row" justify="space-evenly">
+								<Grid item>
+									{typeError ? (
+										<Alert severity="warning">{typeError}</Alert>
+									) : null}
+								</Grid>
 								<Grid item className={classes.btnGrid}>
 									<Button
 										variant="contained"
@@ -62,7 +64,7 @@ export default () => {
 									<Button
 										variant="contained"
 										color="primary"
-										onClick={handleSubmit}
+										onClick={handleNext}
 										className={classes.btn}
 									>
 										التالي
