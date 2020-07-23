@@ -14,7 +14,7 @@ import { AuthProvider } from './Auth';
 import PrivateRoute from './PrivateRoute';
 import Header from './components/CommonComponents/Header';
 import Selection from './components/LayoutComponents/Selection';
-
+import FinalForm from './components/LayoutComponents/Form/FinalForm';
 function App() {
 	return (
 		<div className="App">
@@ -67,6 +67,7 @@ function App() {
 										exact
 										component={ResultReview}
 									/>
+									<Route path="/form/:id" exact component={FinalForm} />
 								</Switch>
 							</Grid>
 							<Grid item xs={false} md={1} className="Background" />

@@ -8,6 +8,7 @@ import { Grid } from '@material-ui/core';
 import Buttons from './Buttons';
 import { withStyles } from '@material-ui/core/styles';
 import Styles from './style';
+import swal from 'sweetalert';
 
 class Selection extends Component {
 	state = {
@@ -16,6 +17,7 @@ class Selection extends Component {
 		loading: true,
 		error: '',
 		selectedEmployees: {},
+		openDialog: false,
 	};
 
 	componentDidMount = () => {
@@ -35,6 +37,14 @@ class Selection extends Component {
 				}),
 			);
 	};
+	handleClickOpenDialog = () => {
+		this.setState({ openDialog: true });
+	};
+
+	handleCloseDialog = () => {
+		this.setState({ openDialog: false });
+	};
+
 	handleCheckEmployee = (employee) => {
 		this.setState({
 			selectedEmployees: {
@@ -50,6 +60,25 @@ class Selection extends Component {
 		event.preventDefault();
 		this.props.history.push('/dashboard/form');
 	};
+	handelFinalForm = (event) => {
+		event.preventDefault();
+
+		return this.props.history.push('/form/1');
+	};
+	handelSubmit = (event) => {
+		event.preventDefault();
+		if (
+			Object.keys(this.state.selectedEmployees).length == 0 ||
+			this.state.reviewee === false
+		)
+			return swal({
+				title: '!خطأ',
+				text:
+					'الرجاء اختيار الشخص الذي سيتم تقييمه واﻻسخاص الذين سيشاركوا في التقييم',
+				icon: 'warning',
+			});
+		this.handleClickOpenDialog();
+	};
 	render() {
 		const { classes } = this.props;
 		return (
@@ -61,6 +90,11 @@ class Selection extends Component {
 					selectedEmployees: this.state.selectedEmployees,
 					handleCheckEmployee: this.handleCheckEmployee,
 					handleBack: this.handleBack,
+					handleClickOpenDialog: this.handleClickOpenDialog,
+					handleCloseDialog: this.handleCloseDialog,
+					handelSubmit: this.handelSubmit,
+					openDialog: this.state.openDialog,
+					handelFinalForm: this.handelFinalForm,
 				}}
 			>
 				<Fragment>

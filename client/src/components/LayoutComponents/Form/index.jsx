@@ -8,7 +8,9 @@ import QuestionsList from './QuestionsList';
 import QuestionsForm from './QuestionsForm/index';
 import context from './Context';
 import Style from './style';
+
 import { withStyles } from '@material-ui/core/styles';
+import FinalForm from './FinalForm';
 class Form extends Component {
 	state = {
 		questions: [],
@@ -104,8 +106,10 @@ class Form extends Component {
 	handleClose = () => {
 		this.setState({ submitDialogOpen: false });
 	};
+
 	render() {
 		const { classes } = this.props;
+
 		return (
 			<context.Provider
 				value={{
@@ -116,6 +120,9 @@ class Form extends Component {
 					handleAddQuestionClick: this.handleAddQuestionClick,
 					handleSubmit: this.handleSubmit,
 					handleNext: this.handleNext,
+
+					selectedQuestions: this.state.selectedQuestions,
+					questions: this.state.questions,
 				}}
 			>
 				<Fragment>
