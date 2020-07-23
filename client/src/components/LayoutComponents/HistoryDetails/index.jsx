@@ -71,8 +71,6 @@ export default function HistorySummary() {
 								التقييم
 							</Button>
 						</ListItem>
-
-						<Divider variant="fullWidth" component="li" />
 					</Box>
 				</React.Fragment>,
 			);

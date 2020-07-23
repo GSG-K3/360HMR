@@ -21,8 +21,8 @@ export default makeStyles((theme) => ({
 		display: 'flex',
 		width: '90%',
 		display: 'flex',
-		alignItems: 'flex-end',
-		height: '90px',
+		alignItems: 'center',
+		height: '100px',
 		margin: theme.spacing(6),
 	},
 	list: {
