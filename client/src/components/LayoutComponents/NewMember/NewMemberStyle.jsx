@@ -36,4 +36,7 @@ export default makeStyles((theme) => ({
 		backgroundColor: theme.palette.secondary.light,
 	},
 	fullWidth: { width: 250 },
+	box: {
+		backgroundColor: '#E4DDDD',
+	},
 }));
