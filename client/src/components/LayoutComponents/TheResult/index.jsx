@@ -20,20 +20,16 @@ export default function ResultReview() {
 		axios
 			.get(`/api/dashboard/history/${params.id}/response/${params.name}`)
 			.then((res) => {
-
 				if (res.data.data.length == 0) {
-
-					swal('Warning', 'The user doesnt review the employee');
-
+					swal('Warning', 'This user didnt review the employee yet');
 				} else {
 					const emp = { ...res.data.data };
-					console.log(emp, "empemp")
+					console.log(emp, 'empemp');
 					setResult(emp);
 				}
 			})
-			.catch(err => {
+			.catch((err) => {
 				if (err.response) swal('Error', err.response.messag, 'error');
-
 			});
 	}, []);
 
@@ -64,7 +60,7 @@ export default function ResultReview() {
 						<Grid className={classes.texts}>
 							<Box component="fieldset" mb={3} borderColor="transparent">
 								<Typography variant="h6"> السؤال {count++}</Typography>
-								<Typography>{empValue.question}</Typography>
+								<Typography>{empValue.context}</Typography>
 								{/* <Typography component="legend">Rating</Typography> */}
 								<Rating
 									name="customized-empty"

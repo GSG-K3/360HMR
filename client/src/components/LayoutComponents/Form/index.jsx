@@ -99,7 +99,7 @@ class Form extends Component {
 			return this.setState({
 				typeError: 'الرجاء اختيار مجموعة من اﻻسئلة ﻻنشاء ملف التقييم',
 			});
-		this.props.history.push('/dashboard/form/step-two');
+		this.props.history.push('/dashboard/form/selection');
 	};
 	handleClose = () => {
 		this.setState({ submitDialogOpen: false });
