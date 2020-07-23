@@ -8,6 +8,7 @@ import { Grid } from '@material-ui/core';
 import Buttons from './Buttons';
 import { withStyles } from '@material-ui/core/styles';
 import Styles from './style';
+import swal from 'sweetalert';
 
 class Selection extends Component {
 	state = {
@@ -61,6 +62,16 @@ class Selection extends Component {
 	};
 	handelSubmit = (event) => {
 		event.preventDefault();
+		if (
+			Object.keys(this.state.selectedEmployees).length == 0 ||
+			this.state.reviewee === false
+		)
+			return swal({
+				title: '!خطأ',
+				text:
+					'الرجاء اختيار الشخص الذي سيتم تقييمه واﻻسخاص الذين سيشاركوا في التقييم',
+				icon: 'warning',
+			});
 		this.handleClickOpenDialog();
 	};
 	render() {

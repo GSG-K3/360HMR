@@ -23,20 +23,20 @@ function DialogForm(props) {
 							aria-describedby="alert-dialog-description"
 						>
 							<DialogTitle id="alert-dialog-title">
-								{'Create Form ?'}
+								{'إنشاء ملف التقييم!'}
 							</DialogTitle>
 							<DialogContent>
 								<DialogContentText id="alert-dialog-description">
-									would you like to view the form before sharing it ?
-									<Link to="http://localhost:3000/form/1">form</Link>
+									هل ترغب بفحص ملف التقييم قبل ان يتم نشره؟
+									<Link to="http://localhost:3000/form/1">تقيـــيم رقم </Link>
 								</DialogContentText>
 							</DialogContent>
 							<DialogActions>
 								<Button onClick={handleCloseDialog} color="primary">
-									cancel
+									الغاء
 								</Button>
 								<Button onClick={handleCloseDialog} color="primary" autoFocus>
-									share
+									نشر
 								</Button>
 							</DialogActions>
 						</Dialog>
