@@ -5,8 +5,9 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import useStyles from './style';
 
 export default (props) => {
+	console.log(props);
 	const classes = useStyles();
-	if (empValue.type === 'نصي') {
+	if (props.selectedQuestions.type === 'نصي') {
 		return (
 			<Fragment>
 				<Grid className={classes.texts}>
@@ -20,7 +21,7 @@ export default (props) => {
 			</Fragment>
 		);
 	}
-	if (empValue.type === 'تقيمي') {
+	if (props.selectedQuestions.type === 'تقيمي') {
 		return (
 			<Fragment>
 				<Grid className={classes.texts}>
