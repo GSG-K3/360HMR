@@ -1,7 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import fire from '../../CommonComponents/SignIn/fire';
 import { AuthContext } from '../../../Auth';
-import { Redirect } from 'react-router-dom';
 
 class Dashboard extends Component {
 	state = { user: {} };
@@ -13,16 +12,12 @@ class Dashboard extends Component {
 			this.setState({ user: user });
 		});
 	}
-	signOut = () => {
-		localStorage.removeItem('firebaseui::rememberedAccounts');
-		fire.auth().signOut();
-		return <Redirect to="/" />;
-	};
+
 	render() {
 		return (
 			<Fragment>
 				<h1>Welcome to your Dashboard {this.state.user.displayName}</h1>
-				<button onClick={this.signOut}>Sign Out</button>
+				<h1>This Page is under Construction! </h1>
 			</Fragment>
 		);
 	}

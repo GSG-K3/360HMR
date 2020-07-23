@@ -11,6 +11,7 @@ class Home extends Component {
 			<Box width={1} className={classes.box}>
 				<Paper elevation={3} className={classes.paper}>
 					<Grid
+						item
 						container
 						xs={12}
 						justify="space-between"
