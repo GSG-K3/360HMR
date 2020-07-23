@@ -3,6 +3,8 @@ import { Paper, Typography, Grid, Box } from '@material-ui/core';
 import Styles from './style';
 import SignIn from '../../CommonComponents/SignIn/index';
 import { withStyles } from '@material-ui/core/styles';
+import { List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
+import StarIcon from '@material-ui/icons/Star';
 
 class Home extends Component {
 	render() {
@@ -44,16 +46,24 @@ class Home extends Component {
 									className={classes.header}
 								>
 									يمكنك من خلال نظام إدارة الموارد البشرية :
-									<br></br>
-									تقييم أداء الموظف بشكل كلي.
-									<br></br>
-									   إعداد التقارير.
-									 <br></br>
-									جمع التعليقات من الأشخاص المناسبين في
-									الوقت المناسب.
-									<br></br>
-									<br></br>
+									<List>
+										<ListItem>
+											<ListItemIcon> <StarIcon /></ListItemIcon>
+											<ListItemText> تقييم أداء الموظف بشكل كلي.</ListItemText>
+										</ListItem>
+										<ListItem>
+											<ListItemIcon> <StarIcon /></ListItemIcon>
+											<ListItemText> إعداد التقارير.</ListItemText>
+										</ListItem>
+										<ListItem>
+											<ListItemIcon> <StarIcon /></ListItemIcon>
+											<ListItemText> جمع التعليقات من الأشخاص المناسبين في
+											الوقت المناسب.
+											</ListItemText>
+										</ListItem>
+									</List>
 
+									<br></br>
 									قم بتقييم الأداء بشكل كلي واجعل الجميع في نفس
 									الصفحة.
 								</Typography>
@@ -64,7 +74,7 @@ class Home extends Component {
 						</Grid>
 					</Grid>
 				</Paper>
-			</Box>
+			</Box >
 		);
 	}
 }

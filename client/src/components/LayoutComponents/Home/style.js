@@ -29,7 +29,7 @@ const Style = (theme) => ({
 		justifyContent: 'center'
 	},
 	textContainer: {
-		marginBottom: 66,
+		marginBottom: 46,
 	},
 });
 
