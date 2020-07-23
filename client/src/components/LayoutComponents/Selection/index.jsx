@@ -46,6 +46,7 @@ class Selection extends Component {
 	};
 
 	handleCheckEmployee = (employee) => {
+
 		this.setState({
 			selectedEmployees: {
 				...this.state.selectedEmployees,
@@ -61,23 +62,35 @@ class Selection extends Component {
 		this.props.history.push('/dashboard/form');
 	};
 	handelFinalForm = (event) => {
+
 		event.preventDefault();
 
 		return this.props.history.push('/form/1');
 	};
 	handelSubmit = (event) => {
 		event.preventDefault();
+
+		let arr = Object.entries(this.state.selectedEmployees)
+
 		if (
-			Object.keys(this.state.selectedEmployees).length == 0 ||
-			this.state.reviewee === false
-		)
-			return swal({
-				title: '!خطأ',
-				text:
-					'الرجاء اختيار الشخص الذي سيتم تقييمه واﻻسخاص الذين سيشاركوا في التقييم',
-				icon: 'warning',
-			});
-		this.handleClickOpenDialog();
+			arr.length == 0 ||
+			this.state.reviewee < 0 || this.state.reviewee == ''
+		) {
+			this.setState({ selectedEmployees: {} }, () => {
+				return swal({
+					title: '!خطأ',
+					text:
+						'الرجاء اختيار الشخص الذي سيتم تقييمه واﻻسخاص الذين سيشاركوا في التقييم',
+					icon: 'warning',
+
+				});
+			})
+		}
+		else {
+			this.setState(() => { selectedEmployees: { } }, () => {
+				this.handleClickOpenDialog()
+			})
+		}
 	};
 	render() {
 		const { classes } = this.props;
