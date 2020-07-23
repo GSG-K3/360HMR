@@ -2,7 +2,6 @@ const nodemailer = require('nodemailer');
 
 module.exports = async (emailinfo) => {
 	try {
-		console.log(emailinfo);
 		const { to, subject, text, html } = emailinfo;
 
 		let transporter = nodemailer.createTransport({
