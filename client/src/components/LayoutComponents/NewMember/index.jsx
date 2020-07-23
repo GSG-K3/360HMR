@@ -103,7 +103,7 @@ export default function AddNewMember() {
 	};
 
 	return (
-		<Box component="div" bgcolor="info.main" mx={23} mt={6}>
+		<Box component="div" className={classes.box} mx={23} mt={6}>
 			<Grid container className={classes.root}>
 				<Grid item xs={6} alignContent="center">
 					<Box>

@@ -19,13 +19,17 @@ export default function ResultReview() {
 	useEffect(() => {
 		axios
 			.get(`/api/dashboard/history/${params.id}/response/${params.name}`)
-			.then((result) => {
-				const emp = { ...result.data.data };
-
-				setResult(emp);
+			.then((res) => {
+				if (res.data.data.length == 0) {
+					swal('Warning', 'This user didnt review the employee yet');
+				} else {
+					const emp = { ...res.data.data };
+					console.log(emp, 'empemp');
+					setResult(emp);
+				}
 			})
 			.catch((err) => {
-				if (err.response.data) swal('Error', err.response.data.messag, 'error');
+				if (err.response) swal('Error', err.response.messag, 'error');
 			});
 	}, []);
 
@@ -43,8 +47,9 @@ export default function ResultReview() {
 					<React.Fragment>
 						<Grid className={classes.texts}>
 							<Typography variant="h5">السؤال {count++}</Typography>
-							<Typography>{empValue.question}</Typography>
-							<Typography>{empValue.context_answer}</Typography>
+							<Typography>{empValue.context}</Typography>
+							<br></br>
+							<Typography>{empValue.answer}</Typography>
 						</Grid>
 						<Divider variant="middle" />
 					</React.Fragment>,
@@ -54,12 +59,12 @@ export default function ResultReview() {
 					<React.Fragment>
 						<Grid className={classes.texts}>
 							<Box component="fieldset" mb={3} borderColor="transparent">
-								<Typography variant="h5"> السؤال {count++}</Typography>
-								<Typography>{empValue.question}</Typography>
+								<Typography variant="h6"> السؤال {count++}</Typography>
+								<Typography>{empValue.context}</Typography>
 								{/* <Typography component="legend">Rating</Typography> */}
 								<Rating
 									name="customized-empty"
-									defaultValue={empValue.context_answer}
+									defaultValue={empValue.answer}
 									precision={0.5}
 									emptyIcon={<StarBorderIcon fontSize="inherit" />}
 								/>
