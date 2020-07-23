@@ -13,7 +13,7 @@ import NavBar from './components/CommonComponents/NavBar';
 import { AuthProvider } from './Auth';
 import PrivateRoute from './PrivateRoute';
 import Header from './components/CommonComponents/Header';
-import { withRouter } from 'react-router';
+import Selection from './components/LayoutComponents/Selection';
 
 function App() {
 	return (
@@ -42,6 +42,11 @@ function App() {
 									<Route path="/" exact component={Home} />
 									<PrivateRoute path="/dashboard" exact component={Dashboard} />
 									<PrivateRoute path="/dashboard/form" exact component={Form} />
+									<PrivateRoute
+										path="/dashboard/form/selection"
+										exact
+										component={Selection}
+									/>
 									<PrivateRoute
 										exact
 										path="/dashboard/new-employee"
