@@ -9,11 +9,19 @@ import {
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import context from '../../LayoutComponents/Selection/context';
+import FinalForm from '../../LayoutComponents/Form/FinalForm';
 
 function DialogForm(props) {
 	return (
 		<context.Consumer>
-			{({ handleCloseDialog, handleClickOpenDialog, openDialog }) => {
+			{({
+				handleCloseDialog,
+				handleClickOpenDialog,
+				openDialog,
+				handelFinalForm,
+			}) => {
+				console.log('hi', handelFinalForm);
+
 				return (
 					<Fragment>
 						<Dialog
@@ -28,7 +36,7 @@ function DialogForm(props) {
 							<DialogContent>
 								<DialogContentText id="alert-dialog-description">
 									هل ترغب بفحص ملف التقييم قبل ان يتم نشره؟
-									<Link to="http://localhost:3000/form/1">تقيـــيم رقم </Link>
+									<Button onClick={handelFinalForm}>تقيـــيم رقم </Button>
 								</DialogContentText>
 							</DialogContent>
 							<DialogActions>

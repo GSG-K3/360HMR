@@ -60,6 +60,11 @@ class Selection extends Component {
 		event.preventDefault();
 		this.props.history.push('/dashboard/form');
 	};
+	handelFinalForm = (event) => {
+		event.preventDefault();
+
+		return this.props.history.push('/form/1');
+	};
 	handelSubmit = (event) => {
 		event.preventDefault();
 		if (
@@ -89,6 +94,7 @@ class Selection extends Component {
 					handleCloseDialog: this.handleCloseDialog,
 					handelSubmit: this.handelSubmit,
 					openDialog: this.state.openDialog,
+					handelFinalForm: this.handelFinalForm,
 				}}
 			>
 				<Fragment>

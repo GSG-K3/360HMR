@@ -103,7 +103,7 @@ export default function AddNewMember() {
 	};
 
 	return (
-		<Box component="div" className={classes.box} mx={23} mt={6}>
+		<Box component="div" className={classes.box} m={10}>
 			<Grid container className={classes.root}>
 				<Grid item xs={6} alignContent="center">
 					<Box>
@@ -125,7 +125,6 @@ export default function AddNewMember() {
 					item
 					xs={6}
 					spacing={1}
-					alignItems="flex-end"
 					justify="flex-start"
 					className={classes.gutterBottom}
 					justify="center"
