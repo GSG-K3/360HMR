@@ -30,7 +30,6 @@ export default function HistorySummary() {
 			.get(`/api/history/${id.id}`)
 			.then((result) => {
 				const emp = { ...result.data.data };
-				console.log(emp);
 				setEmployees(emp);
 			})
 			.catch((err) => {

@@ -24,7 +24,6 @@ export default function ResultReview() {
 					swal('Warning', 'This user didnt review the employee yet');
 				} else {
 					const emp = { ...res.data.data };
-					console.log(emp, 'empemp');
 					setResult(emp);
 				}
 			})
