@@ -3,6 +3,8 @@ import { Paper, Typography, Grid, Box } from '@material-ui/core';
 import Styles from './style';
 import SignIn from '../../CommonComponents/SignIn/index';
 import { withStyles } from '@material-ui/core/styles';
+import { List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
+import StarIcon from '@material-ui/icons/Star';
 
 class Home extends Component {
 	render() {
@@ -43,9 +45,26 @@ class Home extends Component {
 									gutterBottom
 									className={classes.header}
 								>
-									تقييم أداء الموظف بشكل كلي عبر شركتك. يمكنك إعداد التقارير
-									وفقًا لمواصفاتك الدقيقة اجمع التعليقات من الأشخاص المناسبين في
-									الوقت المناسب. قم بتقييم الأداء بشكل كلي واجعل الجميع في نفس
+									يمكنك من خلال نظام إدارة الموارد البشرية :
+									<List>
+										<ListItem>
+											<ListItemIcon> <StarIcon /></ListItemIcon>
+											<ListItemText> تقييم أداء الموظف بشكل كلي.</ListItemText>
+										</ListItem>
+										<ListItem>
+											<ListItemIcon> <StarIcon /></ListItemIcon>
+											<ListItemText> إعداد التقارير.</ListItemText>
+										</ListItem>
+										<ListItem>
+											<ListItemIcon> <StarIcon /></ListItemIcon>
+											<ListItemText> جمع التعليقات من الأشخاص المناسبين في
+											الوقت المناسب.
+											</ListItemText>
+										</ListItem>
+									</List>
+
+									<br></br>
+									قم بتقييم الأداء بشكل كلي واجعل الجميع في نفس
 									الصفحة.
 								</Typography>
 							</Grid>
@@ -55,7 +74,7 @@ class Home extends Component {
 						</Grid>
 					</Grid>
 				</Paper>
-			</Box>
+			</Box >
 		);
 	}
 }
